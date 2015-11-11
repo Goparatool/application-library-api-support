@@ -6,5 +6,9 @@ client demo code to show client developers how to talk to the backend servers
 
 check classes in /application-library-client/src/test/java/com/paratool/applib/client/itcases/
 
-### Doc
+### Api Doc
 See https://github.com/Goparatool/application-library-api
+
+### To Generate such a client
+
+See https://github.com/swagger-api/swagger-codegen  . The swagger json is http://www.shaunyip.me:8585/uoapi/swagger.json 
