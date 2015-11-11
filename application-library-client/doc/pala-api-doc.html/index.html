@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">
+      body { 
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+	display: none;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+    </style>
+  </head>
+  <body>
+  <h1></h1>
+    <div class="app-desc">This is the Paratool Application Library API.\n\n1. Please note that every response with known errors will carry http code = 400 and a json message body with \"errCode\" and human readable \"errMsg\"\n\n2. Use \"errCode\" insteand of http code to differentiate errors\n\n3. Every call can return a permission-related \"errCode\" of INVALID_TOKEN , INVALID_TOKEN , NOT_LOGIN_YET , REQUIRE_PASSWORD_RESET or NO_PERMISSION</div>
+    
+    <div class="app-desc">Contact Info: <a href="zhyzhu@gmail.com">zhyzhu@gmail.com</a></div>
+    <div class="app-desc">Version: N/A</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+  
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  
+  <h2>Table of Contents </h2>
+  <div class="method-summary"></div>
+  
+  <ol>
+  
+  
+  
+  <li><a href="#changePassword"><code><span class="http-method">post</span> /auth/change-password</code></a></li>
+  
+  <li><a href="#emailLogin"><code><span class="http-method">post</span> /auth/email-login</code></a></li>
+  
+  <li><a href="#emailRegister"><code><span class="http-method">post</span> /auth/email-register</code></a></li>
+  
+  <li><a href="#forgetPassword"><code><span class="http-method">post</span> /auth/forget-password</code></a></li>
+  
+  <li><a href="#logout"><code><span class="http-method">post</span> /auth/logout</code></a></li>
+  
+  <li><a href="#getDummy"><code><span class="http-method">get</span> /dummy/get</code></a></li>
+  
+  <li><a href="#setDummy"><code><span class="http-method">post</span> /dummy/set</code></a></li>
+  
+  
+  
+  </ol>
+  
+
+  
+  
+  
+  
+  <div class="method"><a name="changePassword"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auth/change-password</code></pre></div>
+    <div class="method-summary">change-password (<span class="nickname">changePassword</span>)</div>
+    
+    <div class="method-notes"></div>
+
+    
+
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Long
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="emailLogin"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auth/email-login</code></pre></div>
+    <div class="method-summary">login with email if registered with email (<span class="nickname">emailLogin</span>)</div>
+    
+    <div class="method-notes"></div>
+
+    
+
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success.&#39;access_token&#39; header response will be set
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="emailRegister"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auth/email-register</code></pre></div>
+    <div class="method-summary">register with email (<span class="nickname">emailRegister</span>)</div>
+    
+    <div class="method-notes"></div>
+
+    
+
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success. &#39;access_token&#39; header will be set
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="forgetPassword"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auth/forget-password</code></pre></div>
+    <div class="method-summary">forget-password (<span class="nickname">forgetPassword</span>)</div>
+    
+    <div class="method-notes">An email with temp password will be sent to the user. After logining with the temp password,  the client will receive a warning about temp password saying &#39;REQUIRE_PASSWORD_RESET&#39; and should redirect the user to change password</div>
+
+    
+
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Long
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="logout"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auth/logout</code></pre></div>
+    <div class="method-summary">logout (<span class="nickname">logout</span>)</div>
+    
+    <div class="method-notes"></div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      Long
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="getDummy"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dummy/get</code></pre></div>
+    <div class="method-summary">get the dummy (<span class="nickname">getDummy</span>)</div>
+    
+    <div class="method-notes"></div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Dummy">Dummy</a>
+      
+    </div>
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  <div class="method"><a name="setDummy"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /dummy/set</code></pre></div>
+    <div class="method-summary">set the dummy (<span class="nickname">setDummy</span>)</div>
+    
+    <div class="method-notes"></div>
+
+    
+
+    
+
+    
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    
+
+    
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="heaader">Content-Type</span> response header.
+    <ul>
+    
+      <li><code>application/json</code></li>
+    
+    </ul>
+    
+
+    <h3 class="field-label">Responses</h3>
+    
+    <h4 class="field-label">200</h4>
+    success
+    
+    
+    <h4 class="field-label">400</h4>
+    error
+    
+    
+  </div> <!-- method -->
+  <hr/>
+  
+  
+  
+  
+
+  <div class="up"><a href="#__Models">Up</a></div>
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h2>Table of Contents</h2>
+  <ol>
+  
+  
+    <li><a href="#RestErr"><code>RestErr</code></a></li>
+  
+  
+  
+    <li><a href="#EmailLoginRequest"><code>EmailLoginRequest</code></a></li>
+  
+  
+  
+    <li><a href="#ChangePasswordRequest"><code>ChangePasswordRequest</code></a></li>
+  
+  
+  
+    <li><a href="#EmailRegisterRequest"><code>EmailRegisterRequest</code></a></li>
+  
+  
+  
+    <li><a href="#SetDummyRequest"><code>SetDummyRequest</code></a></li>
+  
+  
+  
+    <li><a href="#ForgetPasswordRequest"><code>ForgetPasswordRequest</code></a></li>
+  
+  
+  
+    <li><a href="#Dummy"><code>Dummy</code></a></li>
+  
+  
+  </ol>
+
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="RestErr">RestErr</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">errCode </div><div class="param-desc"><span class="param-type">String</span> such as NO_RECORD</div>
+      
+      <div class="param">errMsg </div><div class="param-desc"><span class="param-type">String</span> human readable error message</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="EmailLoginRequest">EmailLoginRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">email </div><div class="param-desc"><span class="param-type">String</span> email</div>
+      
+      <div class="param">password </div><div class="param-desc"><span class="param-type">String</span> password</div>
+      
+      <div class="param">rememberMe </div><div class="param-desc"><span class="param-type">Boolean</span> remember me for 2 weeks</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="ChangePasswordRequest">ChangePasswordRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">newPassword </div><div class="param-desc"><span class="param-type">String</span> newPassword</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="EmailRegisterRequest">EmailRegisterRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">email </div><div class="param-desc"><span class="param-type">String</span> email</div>
+      
+      <div class="param">password </div><div class="param-desc"><span class="param-type">String</span> password</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="SetDummyRequest">SetDummyRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">newValue </div><div class="param-desc"><span class="param-type">String</span> new value</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="ForgetPasswordRequest">ForgetPasswordRequest</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">email </div><div class="param-desc"><span class="param-type">String</span> email</div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="Dummy">Dummy</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class="field-items">
+      <div class="param">yourIp </div><div class="param-desc"><span class="param-type">String</span> will be returned by the server</div>
+      
+      <div class="param">value </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  </body>
+</html>
