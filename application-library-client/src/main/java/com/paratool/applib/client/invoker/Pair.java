@@ -1,6 +1,6 @@
 package com.paratool.applib.client.invoker;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-11T14:51:44.489+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-11T22:37:52.894+08:00")
 public class Pair {
     private String name = "";
     private String value = "";

@@ -25,12 +25,10 @@ import com.paratool.applib.client.model.SetDummyRequest;
 
 /**
  * 
- * @author kent
+ * @author shaunyip@outlook.com
  *
  */
 public class AuthApiITCase {
-	public static final String ACCESS_TOKEN_KEY = "access_token";
-
 	AuthApi auth = new AuthApi();
 
 	DummyApi dummyApi = new DummyApi();
@@ -48,18 +46,18 @@ public class AuthApiITCase {
 		testPassword2 = "123abc";
 	}
 
-	@Test
-	//you need to clean the user table before running this method
+	@Test	 
 	public void register() throws ApiException {
-		// first of all, I shall register
+	 
 		EmailRegisterRequest registerRequest = new EmailRegisterRequest();
 
-		registerRequest.setEmail(testEmail);
+		String email = System.currentTimeMillis() + "@outlook.com";
+		registerRequest.setEmail(email);
 
 		registerRequest.setPassword(testPassword1);
 		auth.emailRegister(registerRequest);
 		String accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY); // after registration,the server side
+				PalaITCaseCommons.ACCESS_TOKEN_KEY); // after registration,the server side
 									// automatically logs you in
 		System.out.println("Acces Token after register: " + accessToken);
 
@@ -81,7 +79,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(testPassword1);
 		auth.emailLogin(loginRequest);
 		String accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 
 		// logout
 		auth.logout(accessToken);
@@ -111,7 +109,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(testPassword1);
 		auth.emailLogin(loginRequest);
 		accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 
 		// now do biz again. should succeed
 		// use this token to do some biz
@@ -131,7 +129,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(testPassword1);
 		auth.emailLogin(loginRequest);
 		String accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 
 		// logout
 		auth.logout(accessToken);
@@ -161,7 +159,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(testPassword1);
 		auth.emailLogin(loginRequest);
 		accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 
 		// now change password again. should succeed
 		cpRequest = new ChangePasswordRequest();
@@ -177,7 +175,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(testPassword2);
 		auth.emailLogin(loginRequest);
 		accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 
 		// restore the password. should succeed
 		cpRequest = new ChangePasswordRequest();
@@ -203,7 +201,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(testPassword1);
 		auth.emailLogin(loginRequest);
 		String accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 		System.out.println(accessToken);
 	}
 
@@ -232,7 +230,7 @@ public class AuthApiITCase {
 		loginRequest.setPassword(tempPassword);
 		auth.emailLogin(loginRequest);
 		String accessToken = extractResponseHeader(auth.getApiClient(),
-				ACCESS_TOKEN_KEY);
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 		System.out.println(accessToken);
 
 		// use this token to do some biz

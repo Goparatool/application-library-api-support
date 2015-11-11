@@ -6,21 +6,22 @@ import com.paratool.applib.client.invoker.Configuration;
 import com.paratool.applib.client.invoker.Pair;
 import com.paratool.applib.client.invoker.TypeRef;
 
+import com.paratool.applib.client.model.PlainMessage;
 import com.paratool.applib.client.model.RestErr;
-import com.paratool.applib.client.model.Dummy;
-import com.paratool.applib.client.model.SetDummyRequest;
+import com.paratool.applib.client.model.DownloadAppRequest;
+import com.paratool.applib.client.model.UploadAppRequest;
 
 import java.util.*;
 
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-11T22:37:52.894+08:00")
-public class DummyApi {
+public class AppApi {
   private ApiClient apiClient;
 
-  public DummyApi() {
+  public AppApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public DummyApi(ApiClient apiClient) {
+  public AppApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -34,15 +35,22 @@ public class DummyApi {
 
   
   /**
-   * get the dummy
+   * download an app
    * 
-   * @return Dummy
+   * @param accessToken access_token
+   * @param body 
+   * @return PlainMessage
    */
-  public Dummy getDummy () throws ApiException {
-    Object postBody = null;
+  public PlainMessage download (String accessToken, DownloadAppRequest body) throws ApiException {
+    Object postBody = body;
+    
+    // verify the required parameter 'accessToken' is set
+    if (accessToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessToken' when calling download");
+    }
     
     // create path and map variables
-    String path = "/dummy/get".replaceAll("\\{format\\}","json");
+    String path = "/app/download".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -51,6 +59,8 @@ public class DummyApi {
 
     
 
+    if (accessToken != null)
+    headerParams.put("access_token", apiClient.parameterToString(accessToken));
     
 
     
@@ -68,28 +78,28 @@ public class DummyApi {
     String[] authNames = new String[] {  };
 
     
-    TypeRef returnType = new TypeRef<Dummy>() {};
-    return apiClient.invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    TypeRef returnType = new TypeRef<PlainMessage>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
   }
   
   /**
-   * set the dummy
+   * upload an app
    * 
    * @param accessToken access_token
    * @param body 
    * @return void
    */
-  public void setDummy (String accessToken, SetDummyRequest body) throws ApiException {
+  public void upload (String accessToken, UploadAppRequest body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
     if (accessToken == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessToken' when calling setDummy");
+      throw new ApiException(400, "Missing the required parameter 'accessToken' when calling upload");
     }
     
     // create path and map variables
-    String path = "/dummy/set".replaceAll("\\{format\\}","json");
+    String path = "/app/upload".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
