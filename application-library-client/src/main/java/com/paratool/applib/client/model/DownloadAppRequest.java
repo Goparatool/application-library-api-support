@@ -9,10 +9,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-11T22:37:52.894+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T00:13:20.972+08:00")
 public class DownloadAppRequest   {
   
   private String appName = null;
+  private String whichFile = null;
 
   
   /**
@@ -28,6 +29,19 @@ public class DownloadAppRequest   {
   }
 
   
+  /**
+   * which file to download? two options: APP,KB
+   **/
+  @ApiModelProperty(required = true, value = "which file to download? two options: APP,KB")
+  @JsonProperty("whichFile")
+  public String getWhichFile() {
+    return whichFile;
+  }
+  public void setWhichFile(String whichFile) {
+    this.whichFile = whichFile;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -35,6 +49,7 @@ public class DownloadAppRequest   {
     sb.append("class DownloadAppRequest {\n");
     
     sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
+    sb.append("    whichFile: ").append(StringUtil.toIndentedString(whichFile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

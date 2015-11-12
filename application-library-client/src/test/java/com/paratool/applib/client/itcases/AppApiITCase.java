@@ -1,5 +1,6 @@
 package com.paratool.applib.client.itcases;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -9,15 +10,14 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.paratool.applib.client.api.AppApi;
+import com.paratool.applib.client.api.AppApi2;
 import com.paratool.applib.client.api.AuthApi;
 import com.paratool.applib.client.invoker.ApiClient;
+import com.paratool.applib.client.invoker.ApiClient2;
 import com.paratool.applib.client.invoker.ApiException;
 import com.paratool.applib.client.model.DownloadAppRequest;
 import com.paratool.applib.client.model.EmailLoginRequest;
-import com.paratool.applib.client.model.PlainMessage;
 import com.paratool.applib.client.model.RestErr;
-import com.paratool.applib.client.model.UploadAppRequest;
 
 /**
  * 
@@ -27,11 +27,16 @@ import com.paratool.applib.client.model.UploadAppRequest;
 public class AppApiITCase {
 
 	AuthApi auth = new AuthApi();
-	AppApi api = new AppApi();
+	AppApi2 api = new AppApi2(new ApiClient2());
 
 	private ObjectMapper jsonMapper = new ObjectMapper();
 	String testEmail;
 	String testPassword;
+
+	File kbFile = new File(System.getProperty("user.home"),
+			"test/kb-test-file.xls");
+	File appFile = new File(System.getProperty("user.home"),
+			"test/app-test-file.xls");
 
 	@Before
 	public void init() {
@@ -48,6 +53,8 @@ public class AppApiITCase {
 		System.out.println("	US_GROUP has an App called CISCO");
 		System.out.println("	put " + testEmail + " to DEFAULT_GROUP");
 		System.out.println("	put " + testEmail + " to CN_GROUP");
+		System.out.println("Let there be a file for uploading:" + kbFile.getAbsolutePath());
+		System.out.println("Let there be a file for uploading:" + appFile.getAbsolutePath());
 	}
 
 	@Test
@@ -68,7 +75,6 @@ public class AppApiITCase {
 		DownloadAppRequest uar = new DownloadAppRequest();
 		uar.setAppName("EVERY_ONE_IS_HAPPY");
 		try {
-
 			api.download(accessToken, uar);
 		} catch (ApiException e) {
 			RestErr err = extractErr(e);
@@ -101,9 +107,12 @@ public class AppApiITCase {
 		auth.logout(accessToken);
 
 		// do upload, should fail
-		UploadAppRequest uar = buildUploadAppReuest();
+	 
 		try {
-			api.upload(accessToken, uar);
+			api.upload(accessToken, kbFile, "some-app-" + System.currentTimeMillis(),
+					"some-desc", "some-cat", appFile,
+					"seom-dev", 1, "some-comments",
+					null);
 		} catch (ApiException e) {
 			RestErr err = extractErr(e);
 			if (err == null) {
@@ -133,20 +142,21 @@ public class AppApiITCase {
 		// should succeed
 		DownloadAppRequest uar = new DownloadAppRequest();
 		uar.setAppName("EVERY_ONE_IS_HAPPY");
-		PlainMessage result = api.download(accessToken, uar);
-		System.out.println(result);
+		uar.setWhichFile("KB");
+		api.download(accessToken, uar);
 
 		// should succeed
 		uar = new DownloadAppRequest();
 		uar.setAppName("HUAWEI");
-		result = api.download(accessToken, uar);
-		System.out.println(result);
+		uar.setWhichFile("APP");
+		api.download(accessToken, uar);
 
 		// should fail
 		uar = new DownloadAppRequest();
 		uar.setAppName("CISCO");
+		uar.setWhichFile("KB");
 		try {
-			result = api.download(accessToken, uar);
+			api.download(accessToken, uar);
 		} catch (ApiException e) {
 			RestErr err = extractErr(e);
 			if (err == null) {
@@ -165,6 +175,8 @@ public class AppApiITCase {
 		auth.logout(accessToken);
 	}
 
+	// won't work for now due to swagger code gen bug. Please use swagger-ui
+	// page
 	@Test
 	public void uploadThenDownload() throws ApiException {
 
@@ -177,33 +189,26 @@ public class AppApiITCase {
 				PalaITCaseCommons.ACCESS_TOKEN_KEY);
 
 		// upload one. should succeed
-		UploadAppRequest uar = buildUploadAppReuest();
-		String appName = uar.getAppName();
-		api.upload(accessToken, uar);
+
+		String appName = "some-app-" + System.currentTimeMillis();
+		api.upload(accessToken, kbFile, appName,
+				"some-desc", "some-cat", appFile,
+				"seom-dev", 1, "some-comments",
+				null);
 
 		// then download it back
 		// should succeed
 		DownloadAppRequest dar = new DownloadAppRequest();
 		dar.setAppName(appName);
-		PlainMessage result =   api.download(accessToken, dar);
-		System.out.println(result);
- 
+		dar.setWhichFile("KB");
+		api.download(accessToken, dar);
+
 		// logout
 		auth.logout(accessToken);
 
 	}
 
-	private UploadAppRequest buildUploadAppReuest() {
-		UploadAppRequest uar = new UploadAppRequest();
-
-		uar.setAppName("app_" + testEmail + "_" + System.currentTimeMillis());
-		uar.setDescription("some-desc");
-		uar.setCategory("some-cat");
-		uar.setDeveloper("some-dev");
-		uar.setVersion(1);
-		uar.setComments("some-comments");
-		return uar;
-	}
+ 
 
 	private RestErr extractErr(ApiException e) {
 		try {
