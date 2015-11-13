@@ -6,13 +6,14 @@ import com.paratool.applib.client.invoker.Configuration;
 import com.paratool.applib.client.invoker.Pair;
 import com.paratool.applib.client.invoker.TypeRef;
 
-import com.paratool.applib.client.model.RestErr;
+import com.paratool.applib.client.model.UnknownErr;
+import com.paratool.applib.client.model.KnownErr;
 import com.paratool.applib.client.model.Dummy;
 import com.paratool.applib.client.model.SetDummyRequest;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T13:26:47.588+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
 public class DummyApi {
   private ApiClient apiClient;
 

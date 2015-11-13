@@ -10,21 +10,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
-public class SetDummyRequest   {
+public class RunAppRequest   {
   
-  private String newValue = null;
+  private String appName = null;
 
   
   /**
-   * new value
+   * app name
    **/
-  @ApiModelProperty(required = true, value = "new value")
-  @JsonProperty("newValue")
-  public String getNewValue() {
-    return newValue;
+  @ApiModelProperty(required = true, value = "app name")
+  @JsonProperty("appName")
+  public String getAppName() {
+    return appName;
   }
-  public void setNewValue(String newValue) {
-    this.newValue = newValue;
+  public void setAppName(String appName) {
+    this.appName = appName;
   }
 
   
@@ -32,9 +32,9 @@ public class SetDummyRequest   {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetDummyRequest {\n");
+    sb.append("class RunAppRequest {\n");
     
-    sb.append("    newValue: ").append(StringUtil.toIndentedString(newValue)).append("\n");
+    sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

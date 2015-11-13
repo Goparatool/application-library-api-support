@@ -43,13 +43,13 @@ import com.paratool.applib.client.invoker.auth.HttpBasicAuth;
 import com.paratool.applib.client.invoker.auth.ApiKeyAuth;
 import com.paratool.applib.client.invoker.auth.OAuth;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T13:26:47.588+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
 public class ApiClient {
   private Client client;
   private Map<String, Client> hostMap = new HashMap<String, Client>();
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private boolean debugging = false;
-  private String basePath = "https://applib-testenv.goparatoolapi.com/uoapi";
+  private String basePath = "http://tomcat7/uoapi";
   private JSON json = new JSON();
 
   private Map<String, Authentication> authentications;

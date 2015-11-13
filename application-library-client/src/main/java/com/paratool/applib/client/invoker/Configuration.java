@@ -1,6 +1,6 @@
 package com.paratool.applib.client.invoker;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T13:26:47.588+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
 public class Configuration {
   private static ApiClient defaultApiClient = new ApiClient();
 

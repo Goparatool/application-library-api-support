@@ -6,13 +6,17 @@ import com.paratool.applib.client.invoker.Configuration;
 import com.paratool.applib.client.invoker.Pair;
 import com.paratool.applib.client.invoker.TypeRef;
 
-import com.paratool.applib.client.model.RestErr;
+import com.paratool.applib.client.model.UnknownErr;
 import com.paratool.applib.client.model.DownloadAppRequest;
+import com.paratool.applib.client.model.KnownErr;
+import com.paratool.applib.client.model.RunAppTask;
+import com.paratool.applib.client.model.LongNumber;
+import com.paratool.applib.client.model.RunAppRequest;
 import java.io.File;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T13:26:47.588+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
 public class AppApi {
   private ApiClient apiClient;
 
@@ -78,6 +82,104 @@ public class AppApi {
 
     
     apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, null);
+    
+  }
+  
+  /**
+   * poll an app running task
+   * 
+   * @param accessToken access_token
+   * @param body task id
+   * @return RunAppTask
+   */
+  public RunAppTask getRunAppTask (String accessToken, LongNumber body) throws ApiException {
+    Object postBody = body;
+    
+    // verify the required parameter 'accessToken' is set
+    if (accessToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessToken' when calling getRunAppTask");
+    }
+    
+    // create path and map variables
+    String path = "/app/get-runapp-task".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, Object> formParams = new HashMap<String, Object>();
+
+    
+
+    if (accessToken != null)
+    headerParams.put("access_token", apiClient.parameterToString(accessToken));
+    
+
+    
+
+    final String[] accepts = {
+      "application/json"
+    };
+    final String accept = apiClient.selectHeaderAccept(accepts);
+
+    final String[] contentTypes = {
+      
+    };
+    final String contentType = apiClient.selectHeaderContentType(contentTypes);
+
+    String[] authNames = new String[] {  };
+
+    
+    TypeRef returnType = new TypeRef<RunAppTask>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    
+  }
+  
+  /**
+   * run an app
+   * On success it will return the task id. You can then use this id to poll the status of the running task with &#39;/get-runapp-task&#39;.
+   * @param accessToken access_token
+   * @param body 
+   * @return LongNumber
+   */
+  public LongNumber runApp (String accessToken, RunAppRequest body) throws ApiException {
+    Object postBody = body;
+    
+    // verify the required parameter 'accessToken' is set
+    if (accessToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessToken' when calling runApp");
+    }
+    
+    // create path and map variables
+    String path = "/app/run".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, Object> formParams = new HashMap<String, Object>();
+
+    
+
+    if (accessToken != null)
+    headerParams.put("access_token", apiClient.parameterToString(accessToken));
+    
+
+    
+
+    final String[] accepts = {
+      "application/json"
+    };
+    final String accept = apiClient.selectHeaderAccept(accepts);
+
+    final String[] contentTypes = {
+      
+    };
+    final String contentType = apiClient.selectHeaderContentType(contentTypes);
+
+    String[] authNames = new String[] {  };
+
+    
+    TypeRef returnType = new TypeRef<LongNumber>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
   }
   

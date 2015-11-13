@@ -1,56 +1,64 @@
 package com.paratool.applib.client.model;
 
-import com.paratool.applib.client.invoker.StringUtil;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-
-
-import io.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.paratool.applib.client.invoker.StringUtil;
 
 @ApiModel(description = "")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T13:26:47.588+08:00")
-public class RestErr   {
-  
-  private String errCode = null;
-  private String errMsg = null;
+public class RestErr {
 
-  
-  /**
-   * such as NO_RECORD
-   **/
-  @ApiModelProperty(required = true, value = "such as NO_RECORD")
-  @JsonProperty("errCode")
-  public String getErrCode() {
-    return errCode;
-  }
-  public void setErrCode(String errCode) {
-    this.errCode = errCode;
-  }
+	private String errCode = null;
+	private String errMsg = null;
 
-  
-  /**
-   * human readable error message
-   **/
-  @ApiModelProperty(value = "human readable error message")
-  @JsonProperty("errMsg")
-  public String getErrMsg() {
-    return errMsg;
-  }
-  public void setErrMsg(String errMsg) {
-    this.errMsg = errMsg;
-  }
+	private String devErrMsg;
 
-  
+	/**
+	 * such as NO_RECORD
+	 **/
+	@ApiModelProperty(required = true, value = "such as NO_RECORD")
+	@JsonProperty("errCode")
+	public String getErrCode() {
+		return errCode;
+	}
 
-  @Override
-  public String toString()  {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RestErr {\n");
-    
-    sb.append("    errCode: ").append(StringUtil.toIndentedString(errCode)).append("\n");
-    sb.append("    errMsg: ").append(StringUtil.toIndentedString(errMsg)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	/**
+	 * human readable error message
+	 **/
+	@ApiModelProperty(value = "human readable error message")
+	@JsonProperty("errMsg")
+	public String getErrMsg() {
+		return errMsg;
+	}
+
+	public void setErrMsg(String errMsg) {
+		this.errMsg = errMsg;
+	}
+
+	public String getDevErrMsg() {
+		return devErrMsg;
+	}
+
+	public void setDevErrMsg(String devErrMsg) {
+		this.devErrMsg = devErrMsg;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class RestErr {\n");
+
+		sb.append("    errCode: ").append(StringUtil.toIndentedString(errCode))
+				.append("\n");
+		sb.append("    errMsg: ").append(StringUtil.toIndentedString(errMsg))
+				.append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 }

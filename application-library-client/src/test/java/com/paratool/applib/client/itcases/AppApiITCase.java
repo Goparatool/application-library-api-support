@@ -41,8 +41,8 @@ public class AppApiITCase {
 	@Before
 	public void init() {
 		String basePath = "http://localhost:8080/uoapi";
-		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/		
-		api.getApiClient().setBasePath(basePath); 
+		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/
+		api.getApiClient().setBasePath(basePath);
 		testEmail = "shaunyip@outlook.com";
 		testPassword = "abc123";
 
@@ -55,8 +55,10 @@ public class AppApiITCase {
 		System.out.println("	US_GROUP has an App called CISCO");
 		System.out.println("	put " + testEmail + " to DEFAULT_GROUP");
 		System.out.println("	put " + testEmail + " to CN_GROUP");
-		System.out.println("Let there be a file for uploading:" + kbFile.getAbsolutePath());
-		System.out.println("Let there be a file for uploading:" + appFile.getAbsolutePath());
+		System.out.println("Let there be a file for uploading:"
+				+ kbFile.getAbsolutePath());
+		System.out.println("Let there be a file for uploading:"
+				+ appFile.getAbsolutePath());
 	}
 
 	@Test
@@ -109,12 +111,11 @@ public class AppApiITCase {
 		auth.logout(accessToken);
 
 		// do upload, should fail
-	 
+
 		try {
-			api.upload(accessToken, kbFile, "some-app-" + System.currentTimeMillis(),
-					"some-desc", "some-cat", appFile,
-					"seom-dev", 1, "some-comments",
-					null);
+			api.upload(accessToken, kbFile,
+					"some-app-" + System.currentTimeMillis(), "some-desc",
+					"some-cat", appFile, "seom-dev", 1, "some-comments", null);
 		} catch (ApiException e) {
 			RestErr err = extractErr(e);
 			if (err == null) {
@@ -177,8 +178,35 @@ public class AppApiITCase {
 		auth.logout(accessToken);
 	}
 
-	// won't work for now due to swagger code gen bug. Please use swagger-ui
-	// page
+	/**
+	 * this is not a test but a tool to make test data
+	 * 
+	 * @throws ApiException
+	 */
+	@Test
+	public void uploadSleeper() throws ApiException {
+
+		// login
+		EmailLoginRequest loginRequest = new EmailLoginRequest();
+		loginRequest.setEmail(testEmail);
+		loginRequest.setPassword(testPassword);
+		auth.emailLogin(loginRequest);
+		String accessToken = extractResponseHeader(auth.getApiClient(),
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
+
+		// upload one. should succeed
+
+		String appName = "sleeper";
+		api.upload(accessToken, kbFile, appName, "this app can be run",
+				"some-cat",
+				new File(System.getProperty("user.home"),  "temp/sleeper.sh"),
+				"seom-dev", 1, "some-comments", null);
+
+		// logout
+		auth.logout(accessToken);
+
+	}
+
 	@Test
 	public void uploadThenDownload() throws ApiException {
 
@@ -193,10 +221,8 @@ public class AppApiITCase {
 		// upload one. should succeed
 
 		String appName = "some-app-" + System.currentTimeMillis();
-		api.upload(accessToken, kbFile, appName,
-				"some-desc", "some-cat", appFile,
-				"seom-dev", 1, "some-comments",
-				null);
+		api.upload(accessToken, kbFile, appName, "some-desc", "some-cat",
+				appFile, "seom-dev", 1, "some-comments", null);
 
 		// then download it back
 		// should succeed
@@ -209,8 +235,6 @@ public class AppApiITCase {
 		auth.logout(accessToken);
 
 	}
-
- 
 
 	private RestErr extractErr(ApiException e) {
 		try {
