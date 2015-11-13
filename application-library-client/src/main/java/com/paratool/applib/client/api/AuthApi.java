@@ -15,7 +15,7 @@ import com.paratool.applib.client.model.ForgetPasswordRequest;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T00:13:20.972+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T13:26:47.588+08:00")
 public class AuthApi {
   private ApiClient apiClient;
 

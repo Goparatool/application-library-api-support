@@ -40,7 +40,9 @@ public class AppApiITCase {
 
 	@Before
 	public void init() {
-		api.getApiClient().setBasePath("http://localhost:8080/uoapi"); // http://www.shaunyip.me:8585/uoapi/
+		String basePath = "http://localhost:8080/uoapi";
+		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/		
+		api.getApiClient().setBasePath(basePath); 
 		testEmail = "shaunyip@outlook.com";
 		testPassword = "abc123";
 
