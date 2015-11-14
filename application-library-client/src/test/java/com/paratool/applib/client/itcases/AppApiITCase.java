@@ -40,7 +40,8 @@ public class AppApiITCase {
 
 	@Before
 	public void init() {
-		String basePath = "http://localhost:8080/uoapi";
+		//String basePath = "http://localhost:8080/uoapi";
+		String basePath = "https://applib.goparatoolapi.com/uoapi";
 		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/
 		api.getApiClient().setBasePath(basePath);
 		testEmail = "shaunyip@outlook.com";
@@ -199,7 +200,7 @@ public class AppApiITCase {
 		String appName = "sleeper";
 		api.upload(accessToken, kbFile, appName, "this app can be run",
 				"some-cat",
-				new File(System.getProperty("user.home"),  "temp/sleeper.sh"),
+				new File(System.getProperty("user.home"),  "temp/sleeper.bat"),
 				"seom-dev", 1, "some-comments", null);
 
 		// logout
