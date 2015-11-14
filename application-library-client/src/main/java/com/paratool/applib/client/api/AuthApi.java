@@ -16,7 +16,7 @@ import com.paratool.applib.client.model.ForgetPasswordRequest;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-14T18:21:34.393+08:00")
 public class AuthApi {
   private ApiClient apiClient;
 
@@ -87,7 +87,7 @@ public class AuthApi {
   
   /**
    * login with email if registered with email
-   * 
+   * if the user logins with an temporary password, the next time they do anything they will get a REQUIRE_PASSWORD_RESET error. In this case, the client should redirect the user to password changing UI.
    * @param body 
    * @return void
    */
@@ -222,6 +222,53 @@ public class AuthApi {
     
     // create path and map variables
     String path = "/auth/logout".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, Object> formParams = new HashMap<String, Object>();
+
+    
+
+    if (accessToken != null)
+    headerParams.put("access_token", apiClient.parameterToString(accessToken));
+    
+
+    
+
+    final String[] accepts = {
+      "application/json"
+    };
+    final String accept = apiClient.selectHeaderAccept(accepts);
+
+    final String[] contentTypes = {
+      
+    };
+    final String contentType = apiClient.selectHeaderContentType(contentTypes);
+
+    String[] authNames = new String[] {  };
+
+    
+    apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, null);
+    
+  }
+  
+  /**
+   * test-login-status
+   * This resource is used to test if you have logined. It&#39;s only for developement purpose
+   * @param accessToken access_token
+   * @return void
+   */
+  public void testLoginStatus (String accessToken) throws ApiException {
+    Object postBody = null;
+    
+    // verify the required parameter 'accessToken' is set
+    if (accessToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessToken' when calling testLoginStatus");
+    }
+    
+    // create path and map variables
+    String path = "/auth/test-login-status".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

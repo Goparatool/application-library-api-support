@@ -43,7 +43,7 @@ import com.paratool.applib.client.invoker.auth.HttpBasicAuth;
 import com.paratool.applib.client.invoker.auth.ApiKeyAuth;
 import com.paratool.applib.client.invoker.auth.OAuth;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-14T18:21:34.393+08:00")
 public class ApiClient {
   private Client client;
   private Map<String, Client> hostMap = new HashMap<String, Client>();

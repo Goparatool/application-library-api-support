@@ -3,7 +3,7 @@ package com.paratool.applib.client.invoker;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-13T20:57:48.213+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-14T18:21:34.393+08:00")
 public class TypeRef<T> {
     private final Type type;
 

@@ -12,7 +12,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paratool.applib.client.api.AuthApi;
-import com.paratool.applib.client.api.DummyApi;
 import com.paratool.applib.client.invoker.ApiClient;
 import com.paratool.applib.client.invoker.ApiException;
 import com.paratool.applib.client.model.ChangePasswordRequest;
@@ -21,7 +20,6 @@ import com.paratool.applib.client.model.EmailRegisterRequest;
 import com.paratool.applib.client.model.ForgetPasswordRequest;
 import com.paratool.applib.client.model.PlainMessage;
 import com.paratool.applib.client.model.RestErr;
-import com.paratool.applib.client.model.SetDummyRequest;
 
 /**
  * 
@@ -30,8 +28,6 @@ import com.paratool.applib.client.model.SetDummyRequest;
  */
 public class AuthApiITCase {
 	AuthApi auth = new AuthApi();
-
-	DummyApi dummyApi = new DummyApi();
 
 	private ObjectMapper jsonMapper = new ObjectMapper();
 	String testEmail;
@@ -46,9 +42,9 @@ public class AuthApiITCase {
 		testPassword2 = "123abc";
 	}
 
-	@Test	 
+	@Test
 	public void register() throws ApiException {
-	 
+
 		EmailRegisterRequest registerRequest = new EmailRegisterRequest();
 
 		String email = System.currentTimeMillis() + "@outlook.com";
@@ -57,14 +53,13 @@ public class AuthApiITCase {
 		registerRequest.setPassword(testPassword1);
 		auth.emailRegister(registerRequest);
 		String accessToken = extractResponseHeader(auth.getApiClient(),
-				PalaITCaseCommons.ACCESS_TOKEN_KEY); // after registration,the server side
-									// automatically logs you in
+				PalaITCaseCommons.ACCESS_TOKEN_KEY); // after registration,the
+														// server side
+		// automatically logs you in
 		System.out.println("Acces Token after register: " + accessToken);
 
 		// use this token to do some biz. should succeed
-		SetDummyRequest sdr = new SetDummyRequest();
-		sdr.setNewValue("newDummy");
-		dummyApi.setDummy(accessToken, sdr);
+		auth.testLoginStatus(accessToken);
 
 		// after registering I can logout
 		auth.logout(accessToken);
@@ -85,10 +80,8 @@ public class AuthApiITCase {
 		auth.logout(accessToken);
 
 		// then I want to do some biz after logout. will fail
-		SetDummyRequest sdr = new SetDummyRequest();
-		sdr.setNewValue("newDummy");
 		try {
-			dummyApi.setDummy(accessToken, sdr);
+			auth.testLoginStatus(accessToken);
 		} catch (ApiException e) {
 			RestErr err = extractErr(e);
 			if (err == null) {
@@ -113,9 +106,7 @@ public class AuthApiITCase {
 
 		// now do biz again. should succeed
 		// use this token to do some biz
-		sdr = new SetDummyRequest();
-		sdr.setNewValue("newDummy");
-		dummyApi.setDummy(accessToken, sdr);
+		auth.testLoginStatus(accessToken);
 
 		auth.logout(accessToken);
 	}
@@ -234,11 +225,9 @@ public class AuthApiITCase {
 		System.out.println(accessToken);
 
 		// use this token to do some biz
-		SetDummyRequest sdr = new SetDummyRequest();
-		sdr.setNewValue("newDummy");
 
 		try {
-			dummyApi.setDummy(accessToken, sdr);
+			auth.testLoginStatus(accessToken);
 		} catch (ApiException e) {
 			RestErr err = extractErr(e);
 			if (err == null) {
@@ -261,7 +250,7 @@ public class AuthApiITCase {
 		cpRequest.setNewPassword(testPassword1);
 		auth.changePassword(accessToken, cpRequest);
 		// //do some biz. it will succeed;
-		dummyApi.setDummy(accessToken, sdr);
+		auth.testLoginStatus(accessToken);
 	}
 
 	private RestErr extractErr(ApiException e) {
