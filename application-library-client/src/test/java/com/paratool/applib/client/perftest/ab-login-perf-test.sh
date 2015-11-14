@@ -1,1 +1,1 @@
-ab -p login-post.json -T application/json  -c 25 -n 2000 %1
+ab -p login-post.json -T application/json  -c 25 -n 2000 https://xxx/uoapi/auth/email-login
