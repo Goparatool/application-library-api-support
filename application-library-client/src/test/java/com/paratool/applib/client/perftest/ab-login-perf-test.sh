@@ -1,1 +1,1 @@
-ab -p login-post.json -T application/json  -c 25 -n 2000 https://xxx/uoapi/auth/email-login
+ab -p login-post.json -T application/json  -c 10 -n 1000 http://localhost:8080/uoapi/auth/email-login
