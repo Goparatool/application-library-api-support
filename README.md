@@ -11,4 +11,4 @@ See https://github.com/Goparatool/application-library-api
 
 ### To Generate such a client
 
-See https://github.com/swagger-api/swagger-codegen  . The swagger json is http://www.shaunyip.me:8585/uoapi/swagger.json 
+See https://github.com/swagger-api/swagger-codegen . The swagger json is https://applib-testenv.goparatoolapi.com/uoapi/swagger.json
