@@ -40,8 +40,8 @@ public class AppApiITCase {
 
 	@Before
 	public void init() {
-		//String basePath = "http://localhost:8080/uoapi";
-		String basePath = "https://applib.goparatoolapi.com/uoapi";
+		String basePath = "http://localhost:8080/uoapi";
+		//String basePath = "https://applib.goparatoolapi.com/uoapi";
 		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/
 		api.getApiClient().setBasePath(basePath);
 		testEmail = "shaunyip@outlook.com";
