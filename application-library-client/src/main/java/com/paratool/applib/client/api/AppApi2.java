@@ -174,10 +174,10 @@ public class AppApi2 {
 		}
 
 		// verify the required parameter 'kbFile' is set
-		if (kbFile == null) {
-			throw new ApiException(400,
-					"Missing the required parameter 'kbFile' when calling upload");
-		}
+//		if (kbFile == null) {
+//			throw new ApiException(400,
+//					"Missing the required parameter 'kbFile' when calling upload");
+//		}
 
 		// verify the required parameter 'appName' is set
 		if (appName == null) {
