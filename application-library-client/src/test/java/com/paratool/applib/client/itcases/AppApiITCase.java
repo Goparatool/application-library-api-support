@@ -3,6 +3,7 @@ package com.paratool.applib.client.itcases;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,8 +41,9 @@ public class AppApiITCase {
 
 	@Before
 	public void init() {
-		String basePath = "http://localhost:8080/uoapi";
-		// String basePath = "https://applib.goparatoolapi.com/uoapi";
+		// String basePath = "http://localhost:8080/uoapi";
+		 //String basePath = "http://tomcat7/uoapi"; //my local apache httpd
+		 String basePath = "https://applib.goparatoolapi.com/uoapi";
 		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/
 		api.getApiClient().setBasePath(basePath);
 		testEmail = "shaunyip@outlook.com";
@@ -202,6 +204,63 @@ public class AppApiITCase {
 				"some-cat", new File(System.getProperty("user.home"),
 						"temp/sleeper.bat"), "seom-dev", 1, "some-comments",
 				null);
+
+		// logout
+		auth.logout(accessToken);
+
+	}
+
+	// file: AppApiITCase.java
+	@Test
+	public void uploadSleeperConcurrently() throws ApiException {
+
+		// login
+		EmailLoginRequest loginRequest = new EmailLoginRequest();
+		loginRequest.setEmail(testEmail);
+		loginRequest.setPassword(testPassword);
+		auth.emailLogin(loginRequest);
+		final String accessToken = extractResponseHeader(auth.getApiClient(),
+				PalaITCaseCommons.ACCESS_TOKEN_KEY);
+
+		Thread[] threads = new Thread[100];
+		for (int i = 0; i < threads.length; i++) {
+			Runnable task = new Runnable() {
+
+				@Override
+				public void run() {
+					for (int j = 0; j < 10; j++) {
+						try {
+							//Thread.sleep(5);
+							api.upload(
+									accessToken,
+									kbFile,
+									"sleeper" + System.currentTimeMillis()
+											+ new Random().nextInt(100000) + "",
+									"this app can be run", "some-cat",
+									new File(System.getProperty("user.home"),
+											"temp/sleeper.bat"), "seom-dev", 1,
+									"some-comments", null);
+							System.out.println(Thread.currentThread().getName()
+									+ " done with task  " + j);
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+
+					}
+
+				}
+			};
+			threads[i] = new Thread(task);
+			threads[i].start();
+		}
+
+		for (int i = 0; i < 10; i++) {
+			try {
+				threads[i].join();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
 
 		// logout
 		auth.logout(accessToken);
