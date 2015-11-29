@@ -9,11 +9,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-14T18:21:34.393+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-29T20:36:36.665+08:00")
 public class UnknownErr   {
   
   private String errCode = null;
   private String devErrMsg = null;
+  private String exceptionId = null;
 
   
   /**
@@ -42,6 +43,19 @@ public class UnknownErr   {
   }
 
   
+  /**
+   * exception Id. Send this to the backend developer for troubleshooting
+   **/
+  @ApiModelProperty(value = "exception Id. Send this to the backend developer for troubleshooting")
+  @JsonProperty("exceptionId")
+  public String getExceptionId() {
+    return exceptionId;
+  }
+  public void setExceptionId(String exceptionId) {
+    this.exceptionId = exceptionId;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -50,6 +64,7 @@ public class UnknownErr   {
     
     sb.append("    errCode: ").append(StringUtil.toIndentedString(errCode)).append("\n");
     sb.append("    devErrMsg: ").append(StringUtil.toIndentedString(devErrMsg)).append("\n");
+    sb.append("    exceptionId: ").append(StringUtil.toIndentedString(exceptionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

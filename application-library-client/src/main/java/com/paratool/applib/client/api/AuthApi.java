@@ -6,9 +6,9 @@ import com.paratool.applib.client.invoker.Configuration;
 import com.paratool.applib.client.invoker.Pair;
 import com.paratool.applib.client.invoker.TypeRef;
 
-import com.paratool.applib.client.model.ChangePasswordRequest;
 import com.paratool.applib.client.model.UnknownErr;
 import com.paratool.applib.client.model.KnownErr;
+import com.paratool.applib.client.model.ChangePasswordRequest;
 import com.paratool.applib.client.model.EmailLoginRequest;
 import com.paratool.applib.client.model.EmailRegisterRequest;
 import com.paratool.applib.client.model.PlainMessage;
@@ -16,7 +16,7 @@ import com.paratool.applib.client.model.ForgetPasswordRequest;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-14T18:21:34.393+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-29T20:36:36.665+08:00")
 public class AuthApi {
   private ApiClient apiClient;
 

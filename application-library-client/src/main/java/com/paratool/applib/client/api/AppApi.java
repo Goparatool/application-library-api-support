@@ -6,8 +6,8 @@ import com.paratool.applib.client.invoker.Configuration;
 import com.paratool.applib.client.invoker.Pair;
 import com.paratool.applib.client.invoker.TypeRef;
 
-import com.paratool.applib.client.model.UnknownErr;
 import com.paratool.applib.client.model.DownloadAppRequest;
+import com.paratool.applib.client.model.UnknownErr;
 import com.paratool.applib.client.model.KnownErr;
 import com.paratool.applib.client.model.RunAppTask;
 import com.paratool.applib.client.model.LongNumber;
@@ -16,7 +16,7 @@ import java.io.File;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-14T18:21:34.393+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-29T20:36:36.665+08:00")
 public class AppApi {
   private ApiClient apiClient;
 
@@ -39,7 +39,7 @@ public class AppApi {
   
   /**
    * download an app
-   * Swagger UI seems not working if you want to test this method on it. You can check the demo client code ,or write an html file to try it
+   * Swagger UI seems not working if you want to test this method on it. Please check sytem test case documentation for test methods
    * @param accessToken access_token
    * @param body 
    * @return void
@@ -185,7 +185,7 @@ public class AppApi {
   
   /**
    * upload an app.
-   * This method consumes &#39;multipart/form-data&#39;. For testers: Swagger UI doesn&#39;t support multiple-file upload. You can check the demo client code ,or write an html file to try it
+   * This method consumes &#39;multipart/form-data&#39;.
    * @param accessToken access_token
    * @param kbFile knowledge base file
    * @param appName app name

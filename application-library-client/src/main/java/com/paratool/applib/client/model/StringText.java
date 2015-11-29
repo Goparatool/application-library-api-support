@@ -10,21 +10,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-29T20:36:36.665+08:00")
-public class PlainMessage   {
+public class StringText   {
   
-  private String msg = null;
+  private String value = null;
 
   
   /**
-   * plain text message
+   * value
    **/
-  @ApiModelProperty(required = true, value = "plain text message")
-  @JsonProperty("msg")
-  public String getMsg() {
-    return msg;
+  @ApiModelProperty(required = true, value = "value")
+  @JsonProperty("value")
+  public String getValue() {
+    return value;
   }
-  public void setMsg(String msg) {
-    this.msg = msg;
+  public void setValue(String value) {
+    this.value = value;
   }
 
   
@@ -32,9 +32,9 @@ public class PlainMessage   {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PlainMessage {\n");
+    sb.append("class StringText {\n");
     
-    sb.append("    msg: ").append(StringUtil.toIndentedString(msg)).append("\n");
+    sb.append("    value: ").append(StringUtil.toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
