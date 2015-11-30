@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * the meta data of a field
  **/
 @ApiModel(description = "the meta data of a field")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-29T20:36:36.665+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
 public class OarFieldMeta   {
   
   private String name = null;

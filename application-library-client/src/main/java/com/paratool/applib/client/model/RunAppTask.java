@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-29T20:36:36.665+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
 public class RunAppTask   {
   
   private Long id = null;
-  private Date createTime = null;
-  private Date updateTime = null;
+  private Date createDateTime = null;
+  private Date updateDateTime = null;
   private String runnerPrincipalName = null;
   private String appName = null;
   private String state = null;
@@ -38,12 +38,12 @@ public class RunAppTask   {
    * create time. The system miliseconds since 1970-01-01 GMT
    **/
   @ApiModelProperty(value = "create time. The system miliseconds since 1970-01-01 GMT")
-  @JsonProperty("createTime")
-  public Date getCreateTime() {
-    return createTime;
+  @JsonProperty("createDateTime")
+  public Date getCreateDateTime() {
+    return createDateTime;
   }
-  public void setCreateTime(Date createTime) {
-    this.createTime = createTime;
+  public void setCreateDateTime(Date createDateTime) {
+    this.createDateTime = createDateTime;
   }
 
   
@@ -51,12 +51,12 @@ public class RunAppTask   {
    * last update time. The system miliseconds since 1970-01-01 GMT
    **/
   @ApiModelProperty(value = "last update time. The system miliseconds since 1970-01-01 GMT")
-  @JsonProperty("updateTime")
-  public Date getUpdateTime() {
-    return updateTime;
+  @JsonProperty("updateDateTime")
+  public Date getUpdateDateTime() {
+    return updateDateTime;
   }
-  public void setUpdateTime(Date updateTime) {
-    this.updateTime = updateTime;
+  public void setUpdateDateTime(Date updateDateTime) {
+    this.updateDateTime = updateDateTime;
   }
 
   
@@ -106,8 +106,8 @@ public class RunAppTask   {
     sb.append("class RunAppTask {\n");
     
     sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
-    sb.append("    createTime: ").append(StringUtil.toIndentedString(createTime)).append("\n");
-    sb.append("    updateTime: ").append(StringUtil.toIndentedString(updateTime)).append("\n");
+    sb.append("    createDateTime: ").append(StringUtil.toIndentedString(createDateTime)).append("\n");
+    sb.append("    updateDateTime: ").append(StringUtil.toIndentedString(updateDateTime)).append("\n");
     sb.append("    runnerPrincipalName: ").append(StringUtil.toIndentedString(runnerPrincipalName)).append("\n");
     sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
     sb.append("    state: ").append(StringUtil.toIndentedString(state)).append("\n");
