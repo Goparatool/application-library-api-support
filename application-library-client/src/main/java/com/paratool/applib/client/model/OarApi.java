@@ -4,16 +4,17 @@ import com.paratool.applib.client.invoker.StringUtil;
 import java.util.Date;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 /**
  * The spec of Open API
  **/
 @ApiModel(description = "The spec of Open API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class OarApi   {
   
   private Long id = null;
@@ -102,6 +103,28 @@ public class OarApi   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OarApi oarApi = (OarApi) o;
+    return Objects.equals(id, oarApi.id) &&
+        Objects.equals(createDateTime, oarApi.createDateTime) &&
+        Objects.equals(updateDateTime, oarApi.updateDateTime) &&
+        Objects.equals(code, oarApi.code) &&
+        Objects.equals(displayName, oarApi.displayName) &&
+        Objects.equals(description, oarApi.description);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, createDateTime, updateDateTime, code, displayName, description);
+  }
 
   @Override
   public String toString()  {

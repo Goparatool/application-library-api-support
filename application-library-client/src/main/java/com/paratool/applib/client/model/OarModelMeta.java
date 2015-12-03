@@ -5,16 +5,17 @@ import com.paratool.applib.client.model.OarFieldMeta;
 import java.util.*;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 /**
  * the meta data of a parameter object or a result record object
  **/
 @ApiModel(description = "the meta data of a parameter object or a result record object")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class OarModelMeta   {
   
   private List<OarFieldMeta> fieldMetas = new ArrayList<OarFieldMeta>();
@@ -33,6 +34,23 @@ public class OarModelMeta   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OarModelMeta oarModelMeta = (OarModelMeta) o;
+    return Objects.equals(fieldMetas, oarModelMeta.fieldMetas);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(fieldMetas);
+  }
 
   @Override
   public String toString()  {

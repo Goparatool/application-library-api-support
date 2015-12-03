@@ -13,10 +13,9 @@ import javax.ws.rs.core.Response.Status;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
-import org.glassfish.jersey.media.multipart.FormDataMultiPart;
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
-import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -43,7 +42,7 @@ import com.paratool.applib.client.invoker.auth.HttpBasicAuth;
 import com.paratool.applib.client.invoker.auth.ApiKeyAuth;
 import com.paratool.applib.client.invoker.auth.OAuth;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class ApiClient {
   private Client client;
   private Map<String, Client> hostMap = new HashMap<String, Client>();
@@ -60,12 +59,14 @@ public class ApiClient {
   private DateFormat dateFormat;
 
   public ApiClient() {
-    // Use ISO 8601 format for date and datetime.
-    // See https://en.wikipedia.org/wiki/ISO_8601
-    this.dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    // Use RFC3339 format for date and datetime.
+    // See http://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
+    this.dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
     // Use UTC as the default time zone.
     this.dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+    this.json.setDateFormat((DateFormat) dateFormat.clone());
 
     // Set default User-Agent.
     setUserAgent("Java-Swagger");
@@ -76,6 +77,13 @@ public class ApiClient {
     authentications = new HashMap<String, Authentication>();
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
+  }
+
+  /**
+   * Gets the JSON instance to do JSON serialization and deserialization.
+   */
+  public JSON getJSON() {
+    return json;
   }
 
   public String getBasePath() {
@@ -232,6 +240,8 @@ public class ApiClient {
    */
   public ApiClient setDateFormat(DateFormat dateFormat) {
     this.dateFormat = dateFormat;
+    // also set the date format for model (de)serialization with Date properties
+    this.json.setDateFormat((DateFormat) dateFormat.clone());
     return this;
   }
 
@@ -464,23 +474,19 @@ public class ApiClient {
     Entity<?> formEntity = null;
 
     if (contentType.startsWith("multipart/form-data")) {
-      MultiPart multipart = new MultiPart();
+      MultiPart multiPart = new MultiPart();
       for (Entry<String, Object> param: formParams.entrySet()) {
         if (param.getValue() instanceof File) {
           File file = (File) param.getValue();
-
-          FormDataMultiPart mp = new FormDataMultiPart();
-          mp.bodyPart(new FormDataBodyPart(param.getKey(), file.getName()));
-          multipart.bodyPart(mp, MediaType.MULTIPART_FORM_DATA_TYPE);
-
-          multipart.bodyPart(new FileDataBodyPart(param.getKey(), file, MediaType.APPLICATION_OCTET_STREAM_TYPE));
+          FormDataContentDisposition contentDisp = FormDataContentDisposition.name(param.getKey())
+              .fileName(file.getName()).size(file.length()).build();
+          multiPart.bodyPart(new FormDataBodyPart(contentDisp, file, MediaType.APPLICATION_OCTET_STREAM_TYPE));
         } else {
-          FormDataMultiPart mp = new FormDataMultiPart();
-          mp.bodyPart(new FormDataBodyPart(param.getKey(), parameterToString(param.getValue())));
-          multipart.bodyPart(mp, MediaType.MULTIPART_FORM_DATA_TYPE);
+          FormDataContentDisposition contentDisp = FormDataContentDisposition.name(param.getKey()).build();
+          multiPart.bodyPart(new FormDataBodyPart(contentDisp, parameterToString(param.getValue())));
         }
       }
-      formEntity = Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA_TYPE);
+      formEntity = Entity.entity(multiPart, MediaType.MULTIPART_FORM_DATA_TYPE);
     } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
       Form form = new Form();
       for (Entry<String, Object> param: formParams.entrySet()) {

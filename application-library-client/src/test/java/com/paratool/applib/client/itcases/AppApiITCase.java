@@ -11,10 +11,9 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.paratool.applib.client.api.AppApi2;
+import com.paratool.applib.client.api.AppApi;
 import com.paratool.applib.client.api.AuthApi;
 import com.paratool.applib.client.invoker.ApiClient;
-import com.paratool.applib.client.invoker.ApiClient2;
 import com.paratool.applib.client.invoker.ApiException;
 import com.paratool.applib.client.model.DownloadAppRequest;
 import com.paratool.applib.client.model.EmailLoginRequest;
@@ -28,7 +27,8 @@ import com.paratool.applib.client.model.RestErr;
 public class AppApiITCase {
 
 	AuthApi auth = new AuthApi();
-	AppApi2 api = new AppApi2(new ApiClient2());
+	// AppApi2 api = new AppApi2(new ApiClient2());
+	AppApi api = new AppApi();
 
 	private ObjectMapper jsonMapper = new ObjectMapper();
 	String testEmail;
@@ -42,8 +42,8 @@ public class AppApiITCase {
 	@Before
 	public void init() {
 		// String basePath = "http://localhost:8080/uoapi";
-		 //String basePath = "http://tomcat7/uoapi"; //my local apache httpd
-		 String basePath = "https://applib.goparatoolapi.com/uoapi";
+		 String basePath = "http://tomcat7/uoapi"; //my local apache httpd
+		 // String basePath = "https://applib.goparatoolapi.com/uoapi";
 		auth.getApiClient().setBasePath(basePath); // http://www.shaunyip.me:8585/uoapi/
 		api.getApiClient().setBasePath(basePath);
 		testEmail = "shaunyip@outlook.com";

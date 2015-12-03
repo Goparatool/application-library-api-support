@@ -5,16 +5,17 @@ import com.paratool.applib.client.model.KeyValueBag;
 import java.util.*;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 /**
  * Think of it as a pagination result: a list of records + the number of total records
  **/
 @ApiModel(description = "Think of it as a pagination result: a list of records + the number of total records")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class OarPageResult   {
   
   private Integer totalHits = null;
@@ -47,6 +48,24 @@ public class OarPageResult   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OarPageResult oarPageResult = (OarPageResult) o;
+    return Objects.equals(totalHits, oarPageResult.totalHits) &&
+        Objects.equals(records, oarPageResult.records);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(totalHits, records);
+  }
 
   @Override
   public String toString()  {

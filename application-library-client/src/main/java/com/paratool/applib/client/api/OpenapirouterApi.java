@@ -16,7 +16,7 @@ import com.paratool.applib.client.model.OarSearchApiResult;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class OpenapirouterApi {
   private ApiClient apiClient;
 
@@ -44,7 +44,7 @@ public class OpenapirouterApi {
    * @param body apiCode
    * @return OarApiMeta
    */
-  public OarApiMeta getMeta (String accessToken, StringText body) throws ApiException {
+  public OarApiMeta getMeta(String accessToken, StringText body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
@@ -93,7 +93,7 @@ public class OpenapirouterApi {
    * @param body request
    * @return OarPageResult
    */
-  public OarPageResult invoke (String accessToken, OarInvokeRequest body) throws ApiException {
+  public OarPageResult invoke(String accessToken, OarInvokeRequest body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
@@ -142,7 +142,7 @@ public class OpenapirouterApi {
    * @param body keyword of api code. If you input nothing you get all the Apis
    * @return OarSearchApiResult
    */
-  public OarSearchApiResult searchApi (String accessToken, StringText body) throws ApiException {
+  public OarSearchApiResult searchApi(String accessToken, StringText body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set

@@ -3,13 +3,14 @@ package com.paratool.applib.client.model;
 import com.paratool.applib.client.invoker.StringUtil;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class UnknownErr   {
   
   private String errCode = null;
@@ -56,6 +57,25 @@ public class UnknownErr   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UnknownErr unknownErr = (UnknownErr) o;
+    return Objects.equals(errCode, unknownErr.errCode) &&
+        Objects.equals(devErrMsg, unknownErr.devErrMsg) &&
+        Objects.equals(exceptionId, unknownErr.exceptionId);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(errCode, devErrMsg, exceptionId);
+  }
 
   @Override
   public String toString()  {

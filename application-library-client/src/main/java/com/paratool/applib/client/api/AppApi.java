@@ -16,7 +16,7 @@ import java.io.File;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class AppApi {
   private ApiClient apiClient;
 
@@ -44,7 +44,7 @@ public class AppApi {
    * @param body 
    * @return void
    */
-  public void download (String accessToken, DownloadAppRequest body) throws ApiException {
+  public void download(String accessToken, DownloadAppRequest body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
@@ -92,7 +92,7 @@ public class AppApi {
    * @param body task id
    * @return RunAppTask
    */
-  public RunAppTask getRunAppTask (String accessToken, LongNumber body) throws ApiException {
+  public RunAppTask getRunAppTask(String accessToken, LongNumber body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
@@ -141,7 +141,7 @@ public class AppApi {
    * @param body 
    * @return LongNumber
    */
-  public LongNumber runApp (String accessToken, RunAppRequest body) throws ApiException {
+  public LongNumber runApp(String accessToken, RunAppRequest body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
@@ -198,7 +198,7 @@ public class AppApi {
    * @param kbSheetName kbSheetName
    * @return void
    */
-  public void upload (String accessToken, File kbFile, String appName, String description, String category, File appFile, String developer, Integer version, String comments, String kbSheetName) throws ApiException {
+  public void upload(String accessToken, File kbFile, String appName, String description, String category, File appFile, String developer, Integer version, String comments, String kbSheetName) throws ApiException {
     Object postBody = null;
     
     // verify the required parameter 'accessToken' is set

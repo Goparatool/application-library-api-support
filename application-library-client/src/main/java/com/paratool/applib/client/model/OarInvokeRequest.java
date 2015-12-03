@@ -4,13 +4,14 @@ import com.paratool.applib.client.invoker.StringUtil;
 import com.paratool.applib.client.model.KeyValueBag;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class OarInvokeRequest   {
   
   private String apiCode = null;
@@ -43,6 +44,24 @@ public class OarInvokeRequest   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OarInvokeRequest oarInvokeRequest = (OarInvokeRequest) o;
+    return Objects.equals(apiCode, oarInvokeRequest.apiCode) &&
+        Objects.equals(params, oarInvokeRequest.params);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(apiCode, params);
+  }
 
   @Override
   public String toString()  {

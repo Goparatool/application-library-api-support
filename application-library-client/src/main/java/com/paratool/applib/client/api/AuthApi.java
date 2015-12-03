@@ -16,7 +16,7 @@ import com.paratool.applib.client.model.ForgetPasswordRequest;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class AuthApi {
   private ApiClient apiClient;
 
@@ -44,7 +44,7 @@ public class AuthApi {
    * @param body 
    * @return void
    */
-  public void changePassword (String accessToken, ChangePasswordRequest body) throws ApiException {
+  public void changePassword(String accessToken, ChangePasswordRequest body) throws ApiException {
     Object postBody = body;
     
     // verify the required parameter 'accessToken' is set
@@ -91,7 +91,7 @@ public class AuthApi {
    * @param body 
    * @return void
    */
-  public void emailLogin (EmailLoginRequest body) throws ApiException {
+  public void emailLogin(EmailLoginRequest body) throws ApiException {
     Object postBody = body;
     
     // create path and map variables
@@ -131,7 +131,7 @@ public class AuthApi {
    * @param body 
    * @return void
    */
-  public void emailRegister (EmailRegisterRequest body) throws ApiException {
+  public void emailRegister(EmailRegisterRequest body) throws ApiException {
     Object postBody = body;
     
     // create path and map variables
@@ -171,7 +171,7 @@ public class AuthApi {
    * @param body 
    * @return PlainMessage
    */
-  public PlainMessage forgetPassword (ForgetPasswordRequest body) throws ApiException {
+  public PlainMessage forgetPassword(ForgetPasswordRequest body) throws ApiException {
     Object postBody = body;
     
     // create path and map variables
@@ -212,7 +212,7 @@ public class AuthApi {
    * @param accessToken access_token
    * @return void
    */
-  public void logout (String accessToken) throws ApiException {
+  public void logout(String accessToken) throws ApiException {
     Object postBody = null;
     
     // verify the required parameter 'accessToken' is set
@@ -259,7 +259,7 @@ public class AuthApi {
    * @param accessToken access_token
    * @return void
    */
-  public void testLoginStatus (String accessToken) throws ApiException {
+  public void testLoginStatus(String accessToken) throws ApiException {
     Object postBody = null;
     
     // verify the required parameter 'accessToken' is set

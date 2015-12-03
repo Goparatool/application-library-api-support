@@ -4,16 +4,17 @@ import com.paratool.applib.client.invoker.StringUtil;
 import java.util.*;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 /**
  * the meta data of a field
  **/
 @ApiModel(description = "the meta data of a field")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class OarFieldMeta   {
   
   private String name = null;
@@ -130,6 +131,30 @@ public class OarFieldMeta   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OarFieldMeta oarFieldMeta = (OarFieldMeta) o;
+    return Objects.equals(name, oarFieldMeta.name) &&
+        Objects.equals(displayName, oarFieldMeta.displayName) &&
+        Objects.equals(paramHint, oarFieldMeta.paramHint) &&
+        Objects.equals(jsonType, oarFieldMeta.jsonType) &&
+        Objects.equals(optionalParam, oarFieldMeta.optionalParam) &&
+        Objects.equals(multiMediaType, oarFieldMeta.multiMediaType) &&
+        Objects.equals(isDateMillis, oarFieldMeta.isDateMillis) &&
+        Objects.equals(allowedStringValues, oarFieldMeta.allowedStringValues);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, displayName, paramHint, jsonType, optionalParam, multiMediaType, isDateMillis, allowedStringValues);
+  }
 
   @Override
   public String toString()  {

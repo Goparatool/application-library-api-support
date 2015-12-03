@@ -5,13 +5,14 @@ import com.paratool.applib.client.model.KeyValue;
 import java.util.*;
 
 
+import java.util.Objects;
 
 import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-30T16:15:37.190+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
 public class KeyValueBag   {
   
   private List<KeyValue> pairs = new ArrayList<KeyValue>();
@@ -30,6 +31,23 @@ public class KeyValueBag   {
   }
 
   
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    KeyValueBag keyValueBag = (KeyValueBag) o;
+    return Objects.equals(pairs, keyValueBag.pairs);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(pairs);
+  }
 
   @Override
   public String toString()  {
