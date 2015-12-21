@@ -1,7 +1,7 @@
 package com.paratool.applib.client.model;
 
 import com.paratool.applib.client.invoker.StringUtil;
-import com.paratool.applib.client.model.OarModelMeta;
+import com.paratool.applib.client.model.WsrModelMeta;
 
 
 import java.util.Objects;
@@ -11,11 +11,11 @@ import com.fasterxml.jackson.annotation.*;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
-public class OarApiMeta   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+public class WsrMeta   {
   
-  private OarModelMeta paramMeta = null;
-  private OarModelMeta resultRecordMeta = null;
+  private WsrModelMeta paramMeta = null;
+  private WsrModelMeta resultRecordMeta = null;
 
   
   /**
@@ -23,10 +23,10 @@ public class OarApiMeta   {
    **/
   @ApiModelProperty(required = true, value = "paramMeta. Think of it as meta of an html form with several fields")
   @JsonProperty("paramMeta")
-  public OarModelMeta getParamMeta() {
+  public WsrModelMeta getParamMeta() {
     return paramMeta;
   }
-  public void setParamMeta(OarModelMeta paramMeta) {
+  public void setParamMeta(WsrModelMeta paramMeta) {
     this.paramMeta = paramMeta;
   }
 
@@ -36,10 +36,10 @@ public class OarApiMeta   {
    **/
   @ApiModelProperty(required = true, value = "resultRecordMeta. Think of it as meta of a html table with several columns")
   @JsonProperty("resultRecordMeta")
-  public OarModelMeta getResultRecordMeta() {
+  public WsrModelMeta getResultRecordMeta() {
     return resultRecordMeta;
   }
-  public void setResultRecordMeta(OarModelMeta resultRecordMeta) {
+  public void setResultRecordMeta(WsrModelMeta resultRecordMeta) {
     this.resultRecordMeta = resultRecordMeta;
   }
 
@@ -53,9 +53,9 @@ public class OarApiMeta   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OarApiMeta oarApiMeta = (OarApiMeta) o;
-    return Objects.equals(paramMeta, oarApiMeta.paramMeta) &&
-        Objects.equals(resultRecordMeta, oarApiMeta.resultRecordMeta);
+    WsrMeta wsrMeta = (WsrMeta) o;
+    return Objects.equals(paramMeta, wsrMeta.paramMeta) &&
+        Objects.equals(resultRecordMeta, wsrMeta.resultRecordMeta);
   }
 
   @Override
@@ -66,7 +66,7 @@ public class OarApiMeta   {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OarApiMeta {\n");
+    sb.append("class WsrMeta {\n");
     
     sb.append("    paramMeta: ").append(StringUtil.toIndentedString(paramMeta)).append("\n");
     sb.append("    resultRecordMeta: ").append(StringUtil.toIndentedString(resultRecordMeta)).append("\n");

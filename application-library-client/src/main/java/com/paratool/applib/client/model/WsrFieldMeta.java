@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.*;
  * the meta data of a field
  **/
 @ApiModel(description = "the meta data of a field")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
-public class OarFieldMeta   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+public class WsrFieldMeta   {
   
   private String name = null;
   private String displayName = null;
@@ -140,15 +140,15 @@ public class OarFieldMeta   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OarFieldMeta oarFieldMeta = (OarFieldMeta) o;
-    return Objects.equals(name, oarFieldMeta.name) &&
-        Objects.equals(displayName, oarFieldMeta.displayName) &&
-        Objects.equals(paramHint, oarFieldMeta.paramHint) &&
-        Objects.equals(jsonType, oarFieldMeta.jsonType) &&
-        Objects.equals(optionalParam, oarFieldMeta.optionalParam) &&
-        Objects.equals(multiMediaType, oarFieldMeta.multiMediaType) &&
-        Objects.equals(isDateMillis, oarFieldMeta.isDateMillis) &&
-        Objects.equals(allowedStringValues, oarFieldMeta.allowedStringValues);
+    WsrFieldMeta wsrFieldMeta = (WsrFieldMeta) o;
+    return Objects.equals(name, wsrFieldMeta.name) &&
+        Objects.equals(displayName, wsrFieldMeta.displayName) &&
+        Objects.equals(paramHint, wsrFieldMeta.paramHint) &&
+        Objects.equals(jsonType, wsrFieldMeta.jsonType) &&
+        Objects.equals(optionalParam, wsrFieldMeta.optionalParam) &&
+        Objects.equals(multiMediaType, wsrFieldMeta.multiMediaType) &&
+        Objects.equals(isDateMillis, wsrFieldMeta.isDateMillis) &&
+        Objects.equals(allowedStringValues, wsrFieldMeta.allowedStringValues);
   }
 
   @Override
@@ -159,7 +159,7 @@ public class OarFieldMeta   {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OarFieldMeta {\n");
+    sb.append("class WsrFieldMeta {\n");
     
     sb.append("    name: ").append(StringUtil.toIndentedString(name)).append("\n");
     sb.append("    displayName: ").append(StringUtil.toIndentedString(displayName)).append("\n");

@@ -10,11 +10,10 @@ import com.fasterxml.jackson.annotation.*;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
-public class DownloadAppRequest   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+public class DownloadKbRequest   {
   
   private String appName = null;
-  private String whichFile = null;
 
   
   /**
@@ -30,19 +29,6 @@ public class DownloadAppRequest   {
   }
 
   
-  /**
-   * which file to download? two options: APP,KB
-   **/
-  @ApiModelProperty(required = true, value = "which file to download? two options: APP,KB")
-  @JsonProperty("whichFile")
-  public String getWhichFile() {
-    return whichFile;
-  }
-  public void setWhichFile(String whichFile) {
-    this.whichFile = whichFile;
-  }
-
-  
 
   @Override
   public boolean equals(Object o) {
@@ -52,23 +38,21 @@ public class DownloadAppRequest   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DownloadAppRequest downloadAppRequest = (DownloadAppRequest) o;
-    return Objects.equals(appName, downloadAppRequest.appName) &&
-        Objects.equals(whichFile, downloadAppRequest.whichFile);
+    DownloadKbRequest downloadKbRequest = (DownloadKbRequest) o;
+    return Objects.equals(appName, downloadKbRequest.appName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appName, whichFile);
+    return Objects.hash(appName);
   }
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DownloadAppRequest {\n");
+    sb.append("class DownloadKbRequest {\n");
     
     sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
-    sb.append("    whichFile: ").append(StringUtil.toIndentedString(whichFile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

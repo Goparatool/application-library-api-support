@@ -11,23 +11,23 @@ import com.fasterxml.jackson.annotation.*;
 
 
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
-public class OarInvokeRequest   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+public class WsrRunAppRequest   {
   
-  private String apiCode = null;
+  private String appName = null;
   private KeyValueBag params = null;
 
   
   /**
-   * the code the open api you want to invoke
+   * the app you want to run
    **/
-  @ApiModelProperty(required = true, value = "the code the open api you want to invoke")
-  @JsonProperty("apiCode")
-  public String getApiCode() {
-    return apiCode;
+  @ApiModelProperty(required = true, value = "the app you want to run")
+  @JsonProperty("appName")
+  public String getAppName() {
+    return appName;
   }
-  public void setApiCode(String apiCode) {
-    this.apiCode = apiCode;
+  public void setAppName(String appName) {
+    this.appName = appName;
   }
 
   
@@ -53,22 +53,22 @@ public class OarInvokeRequest   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OarInvokeRequest oarInvokeRequest = (OarInvokeRequest) o;
-    return Objects.equals(apiCode, oarInvokeRequest.apiCode) &&
-        Objects.equals(params, oarInvokeRequest.params);
+    WsrRunAppRequest wsrRunAppRequest = (WsrRunAppRequest) o;
+    return Objects.equals(appName, wsrRunAppRequest.appName) &&
+        Objects.equals(params, wsrRunAppRequest.params);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiCode, params);
+    return Objects.hash(appName, params);
   }
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OarInvokeRequest {\n");
+    sb.append("class WsrRunAppRequest {\n");
     
-    sb.append("    apiCode: ").append(StringUtil.toIndentedString(apiCode)).append("\n");
+    sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
     sb.append("    params: ").append(StringUtil.toIndentedString(params)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -1,7 +1,7 @@
 package com.paratool.applib.client.model;
 
 import com.paratool.applib.client.invoker.StringUtil;
-import com.paratool.applib.client.model.OarFieldMeta;
+import com.paratool.applib.client.model.WsrFieldMeta;
 import java.util.*;
 
 
@@ -15,10 +15,10 @@ import com.fasterxml.jackson.annotation.*;
  * the meta data of a parameter object or a result record object
  **/
 @ApiModel(description = "the meta data of a parameter object or a result record object")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
-public class OarModelMeta   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+public class WsrModelMeta   {
   
-  private List<OarFieldMeta> fieldMetas = new ArrayList<OarFieldMeta>();
+  private List<WsrFieldMeta> fieldMetas = new ArrayList<WsrFieldMeta>();
 
   
   /**
@@ -26,10 +26,10 @@ public class OarModelMeta   {
    **/
   @ApiModelProperty(required = true, value = "The meta data of each field")
   @JsonProperty("fieldMetas")
-  public List<OarFieldMeta> getFieldMetas() {
+  public List<WsrFieldMeta> getFieldMetas() {
     return fieldMetas;
   }
-  public void setFieldMetas(List<OarFieldMeta> fieldMetas) {
+  public void setFieldMetas(List<WsrFieldMeta> fieldMetas) {
     this.fieldMetas = fieldMetas;
   }
 
@@ -43,8 +43,8 @@ public class OarModelMeta   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OarModelMeta oarModelMeta = (OarModelMeta) o;
-    return Objects.equals(fieldMetas, oarModelMeta.fieldMetas);
+    WsrModelMeta wsrModelMeta = (WsrModelMeta) o;
+    return Objects.equals(fieldMetas, wsrModelMeta.fieldMetas);
   }
 
   @Override
@@ -55,7 +55,7 @@ public class OarModelMeta   {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OarModelMeta {\n");
+    sb.append("class WsrModelMeta {\n");
     
     sb.append("    fieldMetas: ").append(StringUtil.toIndentedString(fieldMetas)).append("\n");
     sb.append("}");

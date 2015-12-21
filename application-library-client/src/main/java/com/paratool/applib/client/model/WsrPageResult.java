@@ -15,8 +15,8 @@ import com.fasterxml.jackson.annotation.*;
  * Think of it as a pagination result: a list of records + the number of total records
  **/
 @ApiModel(description = "Think of it as a pagination result: a list of records + the number of total records")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-03T20:30:47.781+08:00")
-public class OarPageResult   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+public class WsrPageResult   {
   
   private Integer totalHits = null;
   private List<KeyValueBag> records = new ArrayList<KeyValueBag>();
@@ -57,9 +57,9 @@ public class OarPageResult   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OarPageResult oarPageResult = (OarPageResult) o;
-    return Objects.equals(totalHits, oarPageResult.totalHits) &&
-        Objects.equals(records, oarPageResult.records);
+    WsrPageResult wsrPageResult = (WsrPageResult) o;
+    return Objects.equals(totalHits, wsrPageResult.totalHits) &&
+        Objects.equals(records, wsrPageResult.records);
   }
 
   @Override
@@ -70,7 +70,7 @@ public class OarPageResult   {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OarPageResult {\n");
+    sb.append("class WsrPageResult {\n");
     
     sb.append("    totalHits: ").append(StringUtil.toIndentedString(totalHits)).append("\n");
     sb.append("    records: ").append(StringUtil.toIndentedString(records)).append("\n");
