@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.*;
  * the meta data of a parameter object or a result record object
  **/
 @ApiModel(description = "the meta data of a parameter object or a result record object")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-19T17:19:51.361+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
 public class WsrModelMeta   {
   
   private List<WsrFieldMeta> fieldMetas = new ArrayList<WsrFieldMeta>();

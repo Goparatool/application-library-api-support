@@ -10,16 +10,17 @@ import io.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
+/**
+ * The downloading url is not sent along because generating it will take time. Please let the system gen the url for you when the user really need it
+ **/
+@ApiModel(description = "The downloading url is not sent along because generating it will take time. Please let the system gen the url for you when the user really need it")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
-public class RunAppTask   {
+public class UserConfig   {
   
   private Long id = null;
   private Date createDateTime = null;
   private Date updateDateTime = null;
-  private String runnerPrincipalName = null;
-  private String appName = null;
-  private String state = null;
+  private String uniqueTag = null;
 
   
   /**
@@ -62,41 +63,15 @@ public class RunAppTask   {
 
   
   /**
-   * who run it
+   * a user-readable label of the config. it can be just a timestamp
    **/
-  @ApiModelProperty(value = "who run it")
-  @JsonProperty("runnerPrincipalName")
-  public String getRunnerPrincipalName() {
-    return runnerPrincipalName;
+  @ApiModelProperty(required = true, value = "a user-readable label of the config. it can be just a timestamp")
+  @JsonProperty("uniqueTag")
+  public String getUniqueTag() {
+    return uniqueTag;
   }
-  public void setRunnerPrincipalName(String runnerPrincipalName) {
-    this.runnerPrincipalName = runnerPrincipalName;
-  }
-
-  
-  /**
-   * application name
-   **/
-  @ApiModelProperty(value = "application name")
-  @JsonProperty("appName")
-  public String getAppName() {
-    return appName;
-  }
-  public void setAppName(String appName) {
-    this.appName = appName;
-  }
-
-  
-  /**
-   * current state
-   **/
-  @ApiModelProperty(value = "current state")
-  @JsonProperty("state")
-  public String getState() {
-    return state;
-  }
-  public void setState(String state) {
-    this.state = state;
+  public void setUniqueTag(String uniqueTag) {
+    this.uniqueTag = uniqueTag;
   }
 
   
@@ -109,31 +84,27 @@ public class RunAppTask   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RunAppTask runAppTask = (RunAppTask) o;
-    return Objects.equals(id, runAppTask.id) &&
-        Objects.equals(createDateTime, runAppTask.createDateTime) &&
-        Objects.equals(updateDateTime, runAppTask.updateDateTime) &&
-        Objects.equals(runnerPrincipalName, runAppTask.runnerPrincipalName) &&
-        Objects.equals(appName, runAppTask.appName) &&
-        Objects.equals(state, runAppTask.state);
+    UserConfig userConfig = (UserConfig) o;
+    return Objects.equals(id, userConfig.id) &&
+        Objects.equals(createDateTime, userConfig.createDateTime) &&
+        Objects.equals(updateDateTime, userConfig.updateDateTime) &&
+        Objects.equals(uniqueTag, userConfig.uniqueTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createDateTime, updateDateTime, runnerPrincipalName, appName, state);
+    return Objects.hash(id, createDateTime, updateDateTime, uniqueTag);
   }
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RunAppTask {\n");
+    sb.append("class UserConfig {\n");
     
     sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
     sb.append("    createDateTime: ").append(StringUtil.toIndentedString(createDateTime)).append("\n");
     sb.append("    updateDateTime: ").append(StringUtil.toIndentedString(updateDateTime)).append("\n");
-    sb.append("    runnerPrincipalName: ").append(StringUtil.toIndentedString(runnerPrincipalName)).append("\n");
-    sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
-    sb.append("    state: ").append(StringUtil.toIndentedString(state)).append("\n");
+    sb.append("    uniqueTag: ").append(StringUtil.toIndentedString(uniqueTag)).append("\n");
     sb.append("}");
     return sb.toString();
   }

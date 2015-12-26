@@ -12,14 +12,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @ApiModel(description = "")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
-public class RunAppTask   {
+public class UserBasicInfo   {
   
   private Long id = null;
   private Date createDateTime = null;
   private Date updateDateTime = null;
-  private String runnerPrincipalName = null;
-  private String appName = null;
-  private String state = null;
+  private String userPrincipalName = null;
+  private String email = null;
+  private String source = null;
 
   
   /**
@@ -62,41 +62,41 @@ public class RunAppTask   {
 
   
   /**
-   * who run it
+   * the unique user name
    **/
-  @ApiModelProperty(value = "who run it")
-  @JsonProperty("runnerPrincipalName")
-  public String getRunnerPrincipalName() {
-    return runnerPrincipalName;
+  @ApiModelProperty(required = true, value = "the unique user name")
+  @JsonProperty("userPrincipalName")
+  public String getUserPrincipalName() {
+    return userPrincipalName;
   }
-  public void setRunnerPrincipalName(String runnerPrincipalName) {
-    this.runnerPrincipalName = runnerPrincipalName;
+  public void setUserPrincipalName(String userPrincipalName) {
+    this.userPrincipalName = userPrincipalName;
   }
 
   
   /**
-   * application name
+   * email
    **/
-  @ApiModelProperty(value = "application name")
-  @JsonProperty("appName")
-  public String getAppName() {
-    return appName;
+  @ApiModelProperty(required = true, value = "email")
+  @JsonProperty("email")
+  public String getEmail() {
+    return email;
   }
-  public void setAppName(String appName) {
-    this.appName = appName;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   
   /**
-   * current state
+   * source. Did he/she register here or coming from facebook/google ?
    **/
-  @ApiModelProperty(value = "current state")
-  @JsonProperty("state")
-  public String getState() {
-    return state;
+  @ApiModelProperty(required = true, value = "source. Did he/she register here or coming from facebook/google ?")
+  @JsonProperty("source")
+  public String getSource() {
+    return source;
   }
-  public void setState(String state) {
-    this.state = state;
+  public void setSource(String source) {
+    this.source = source;
   }
 
   
@@ -109,31 +109,31 @@ public class RunAppTask   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RunAppTask runAppTask = (RunAppTask) o;
-    return Objects.equals(id, runAppTask.id) &&
-        Objects.equals(createDateTime, runAppTask.createDateTime) &&
-        Objects.equals(updateDateTime, runAppTask.updateDateTime) &&
-        Objects.equals(runnerPrincipalName, runAppTask.runnerPrincipalName) &&
-        Objects.equals(appName, runAppTask.appName) &&
-        Objects.equals(state, runAppTask.state);
+    UserBasicInfo userBasicInfo = (UserBasicInfo) o;
+    return Objects.equals(id, userBasicInfo.id) &&
+        Objects.equals(createDateTime, userBasicInfo.createDateTime) &&
+        Objects.equals(updateDateTime, userBasicInfo.updateDateTime) &&
+        Objects.equals(userPrincipalName, userBasicInfo.userPrincipalName) &&
+        Objects.equals(email, userBasicInfo.email) &&
+        Objects.equals(source, userBasicInfo.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createDateTime, updateDateTime, runnerPrincipalName, appName, state);
+    return Objects.hash(id, createDateTime, updateDateTime, userPrincipalName, email, source);
   }
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RunAppTask {\n");
+    sb.append("class UserBasicInfo {\n");
     
     sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
     sb.append("    createDateTime: ").append(StringUtil.toIndentedString(createDateTime)).append("\n");
     sb.append("    updateDateTime: ").append(StringUtil.toIndentedString(updateDateTime)).append("\n");
-    sb.append("    runnerPrincipalName: ").append(StringUtil.toIndentedString(runnerPrincipalName)).append("\n");
-    sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
-    sb.append("    state: ").append(StringUtil.toIndentedString(state)).append("\n");
+    sb.append("    userPrincipalName: ").append(StringUtil.toIndentedString(userPrincipalName)).append("\n");
+    sb.append("    email: ").append(StringUtil.toIndentedString(email)).append("\n");
+    sb.append("    source: ").append(StringUtil.toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }
