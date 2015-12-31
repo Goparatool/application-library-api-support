@@ -31,11 +31,6 @@ import com.paratool.applib.api.util.thirdpartyhelp.wikipedia.WikiOutput;
 @Service
 public class WsrWikiArticleSearchProxy extends WsrProxy {
 
-	/**
-	 * never change the spelling
-	 */
-	public static final String APP_NAME = "WSRelay_WikiArticleSearch";
-
 	@Resource
 	WikiClient wikiClient;
 
@@ -51,7 +46,8 @@ public class WsrWikiArticleSearchProxy extends WsrProxy {
 
 	@Override
 	public String getAppName() {
-		return APP_NAME;
+		//never change the spelling
+		return "WSRelay_WikiArticleSearch";
 	}
 
 	@Override

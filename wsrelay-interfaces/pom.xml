@@ -5,7 +5,7 @@
 	<groupId>com.paratool</groupId>
 	<artifactId>pala-wsrelay-interfaces</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>application library api's web services relay interfaces</name>
 
 	<properties>

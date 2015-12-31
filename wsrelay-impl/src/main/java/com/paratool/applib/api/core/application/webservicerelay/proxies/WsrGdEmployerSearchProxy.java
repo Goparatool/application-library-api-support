@@ -33,11 +33,6 @@ public class WsrGdEmployerSearchProxy extends WsrProxy {
 
 	
 
-	/**
-	 * never change the spelling
-	 */
-	public static final String APP_NAME = "WSRelay_GlassdoorEmployerSearch";
-
 	static final String RESULT_FIELD_WEBSITE = "website";
 	static final String RESULT_FIELD_FEATURED_REVIEW_DATE_TIME = "featuredReviewDateTime";
 	static final String RESULT_FIELD_FEATURED_REVIEW_CONS = "featuredReviewCons";
@@ -65,7 +60,8 @@ public class WsrGdEmployerSearchProxy extends WsrProxy {
 
 	@Override
 	public String getAppName() {
-		return APP_NAME;
+		//never change the spelling
+		return "WSRelay_GlassdoorEmployerSearch";
 	}
 
 	@Override

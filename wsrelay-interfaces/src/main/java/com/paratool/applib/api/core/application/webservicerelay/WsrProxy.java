@@ -3,9 +3,6 @@ package com.paratool.applib.api.core.application.webservicerelay;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -21,9 +18,6 @@ public abstract class WsrProxy {
 	private WsrModelMeta _credentialMeta;
 
 	private WsrModelMeta _resultRecordMeta;
-
-	@Resource
-	WsrProxyDepot proxyDepot;
 
 	/**
 	 * the app name. It should not be changed once defined, because it is
@@ -104,14 +98,6 @@ public abstract class WsrProxy {
 		}
 		return _resultRecordMeta;
 
-	}
-
-	/**
-	 * register myself as a proxy
-	 */
-	@PostConstruct
-	public void init() {
-		proxyDepot.addProxy(this.getAppName(), this);
 	}
 
 	/**
