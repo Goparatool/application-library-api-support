@@ -1,16 +1,17 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
-
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class ChangePasswordRequest   {
   
   private String newPassword = null;
@@ -19,6 +20,7 @@ public class ChangePasswordRequest   {
   /**
    * newPassword
    **/
+  
   @ApiModelProperty(required = true, value = "newPassword")
   @JsonProperty("newPassword")
   public String getNewPassword() {
@@ -48,12 +50,24 @@ public class ChangePasswordRequest   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangePasswordRequest {\n");
     
-    sb.append("    newPassword: ").append(StringUtil.toIndentedString(newPassword)).append("\n");
+    sb.append("    newPassword: ").append(toIndentedString(newPassword)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

@@ -1,16 +1,17 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
-
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class UoAddConfigRequest   {
   
   private String tagPrefix = null;
@@ -20,6 +21,7 @@ public class UoAddConfigRequest   {
   /**
    * a user-set label of the config. it will be appended with a timestamp by the system
    **/
+  
   @ApiModelProperty(value = "a user-set label of the config. it will be appended with a timestamp by the system")
   @JsonProperty("tagPrefix")
   public String getTagPrefix() {
@@ -33,6 +35,7 @@ public class UoAddConfigRequest   {
   /**
    * the config content
    **/
+  
   @ApiModelProperty(required = true, value = "the config content")
   @JsonProperty("content")
   public String getContent() {
@@ -63,13 +66,25 @@ public class UoAddConfigRequest   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UoAddConfigRequest {\n");
     
-    sb.append("    tagPrefix: ").append(StringUtil.toIndentedString(tagPrefix)).append("\n");
-    sb.append("    content: ").append(StringUtil.toIndentedString(content)).append("\n");
+    sb.append("    tagPrefix: ").append(toIndentedString(tagPrefix)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

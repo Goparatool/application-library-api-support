@@ -1,17 +1,18 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
-
-
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class App   {
   
   private Long id = null;
@@ -30,6 +31,7 @@ public class App   {
   /**
    * id
    **/
+  
   @ApiModelProperty(value = "id")
   @JsonProperty("id")
   public Long getId() {
@@ -43,6 +45,7 @@ public class App   {
   /**
    * create time. The system miliseconds since 1970-01-01 GMT
    **/
+  
   @ApiModelProperty(value = "create time. The system miliseconds since 1970-01-01 GMT")
   @JsonProperty("createDateTime")
   public Date getCreateDateTime() {
@@ -56,6 +59,7 @@ public class App   {
   /**
    * last update time. The system miliseconds since 1970-01-01 GMT
    **/
+  
   @ApiModelProperty(value = "last update time. The system miliseconds since 1970-01-01 GMT")
   @JsonProperty("updateDateTime")
   public Date getUpdateDateTime() {
@@ -69,6 +73,7 @@ public class App   {
   /**
    * application name
    **/
+  
   @ApiModelProperty(required = true, value = "application name")
   @JsonProperty("appName")
   public String getAppName() {
@@ -82,6 +87,7 @@ public class App   {
   /**
    * app type. one of the following: ClientScript,ServerRunnable,WebServiceRelay
    **/
+  
   @ApiModelProperty(required = true, value = "app type. one of the following: ClientScript,ServerRunnable,WebServiceRelay")
   @JsonProperty("appType")
   public String getAppType() {
@@ -95,6 +101,7 @@ public class App   {
   /**
    * category
    **/
+  
   @ApiModelProperty(required = true, value = "category")
   @JsonProperty("category")
   public String getCategory() {
@@ -108,6 +115,7 @@ public class App   {
   /**
    * description
    **/
+  
   @ApiModelProperty(value = "description")
   @JsonProperty("description")
   public String getDescription() {
@@ -121,6 +129,7 @@ public class App   {
   /**
    * info about the developer
    **/
+  
   @ApiModelProperty(value = "info about the developer")
   @JsonProperty("developer")
   public String getDeveloper() {
@@ -134,6 +143,7 @@ public class App   {
   /**
    * version
    **/
+  
   @ApiModelProperty(value = "version")
   @JsonProperty("version")
   public Integer getVersion() {
@@ -147,6 +157,7 @@ public class App   {
   /**
    * comments
    **/
+  
   @ApiModelProperty(value = "comments")
   @JsonProperty("comments")
   public String getComments() {
@@ -160,6 +171,7 @@ public class App   {
   /**
    * whether this app has an app file
    **/
+  
   @ApiModelProperty(required = true, value = "whether this app has an app file")
   @JsonProperty("hasAppFile")
   public Boolean getHasAppFile() {
@@ -199,22 +211,34 @@ public class App   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class App {\n");
     
-    sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
-    sb.append("    createDateTime: ").append(StringUtil.toIndentedString(createDateTime)).append("\n");
-    sb.append("    updateDateTime: ").append(StringUtil.toIndentedString(updateDateTime)).append("\n");
-    sb.append("    appName: ").append(StringUtil.toIndentedString(appName)).append("\n");
-    sb.append("    appType: ").append(StringUtil.toIndentedString(appType)).append("\n");
-    sb.append("    category: ").append(StringUtil.toIndentedString(category)).append("\n");
-    sb.append("    description: ").append(StringUtil.toIndentedString(description)).append("\n");
-    sb.append("    developer: ").append(StringUtil.toIndentedString(developer)).append("\n");
-    sb.append("    version: ").append(StringUtil.toIndentedString(version)).append("\n");
-    sb.append("    comments: ").append(StringUtil.toIndentedString(comments)).append("\n");
-    sb.append("    hasAppFile: ").append(StringUtil.toIndentedString(hasAppFile)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createDateTime: ").append(toIndentedString(createDateTime)).append("\n");
+    sb.append("    updateDateTime: ").append(toIndentedString(updateDateTime)).append("\n");
+    sb.append("    appName: ").append(toIndentedString(appName)).append("\n");
+    sb.append("    appType: ").append(toIndentedString(appType)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    developer: ").append(toIndentedString(developer)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    hasAppFile: ").append(toIndentedString(hasAppFile)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

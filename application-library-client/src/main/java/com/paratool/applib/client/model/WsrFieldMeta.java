@@ -1,20 +1,21 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
-
-
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
 /**
  * the meta data of a field
  **/
+
 @ApiModel(description = "the meta data of a field")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class WsrFieldMeta   {
   
   private String name = null;
@@ -30,6 +31,7 @@ public class WsrFieldMeta   {
   /**
    * field name, such as 'logo'
    **/
+  
   @ApiModelProperty(required = true, value = "field name, such as 'logo'")
   @JsonProperty("name")
   public String getName() {
@@ -43,6 +45,7 @@ public class WsrFieldMeta   {
   /**
    * the text to show to users to tell them what this field is, e.g. 'Company Logo'
    **/
+  
   @ApiModelProperty(required = true, value = "the text to show to users to tell them what this field is, e.g. 'Company Logo'")
   @JsonProperty("displayName")
   public String getDisplayName() {
@@ -56,6 +59,7 @@ public class WsrFieldMeta   {
   /**
    * the hint for users if this field is used as a param. It is like html5 forms' placeholder,
    **/
+  
   @ApiModelProperty(value = "the hint for users if this field is used as a param. It is like html5 forms' placeholder,")
   @JsonProperty("paramHint")
   public String getParamHint() {
@@ -69,6 +73,7 @@ public class WsrFieldMeta   {
   /**
    * The basic josn type of this field. Currently it supports:  {Number, Boolean, String}
    **/
+  
   @ApiModelProperty(required = true, value = "The basic josn type of this field. Currently it supports:  {Number, Boolean, String}")
   @JsonProperty("jsonType")
   public String getJsonType() {
@@ -82,6 +87,7 @@ public class WsrFieldMeta   {
   /**
    * When this field is used as a param, can it be optional?
    **/
+  
   @ApiModelProperty(required = true, value = "When this field is used as a param, can it be optional?")
   @JsonProperty("optionalParam")
   public Boolean getOptionalParam() {
@@ -95,6 +101,7 @@ public class WsrFieldMeta   {
   /**
    * the multi-media type this field represents. Currently it supports:  {Image}
    **/
+  
   @ApiModelProperty(value = "the multi-media type this field represents. Currently it supports:  {Image}")
   @JsonProperty("multiMediaType")
   public String getMultiMediaType() {
@@ -108,6 +115,7 @@ public class WsrFieldMeta   {
   /**
    * is this field the milliseconds since 1970-01-01 UTC ?
    **/
+  
   @ApiModelProperty(required = true, value = "is this field the milliseconds since 1970-01-01 UTC ?")
   @JsonProperty("isDateMillis")
   public Boolean getIsDateMillis() {
@@ -121,6 +129,7 @@ public class WsrFieldMeta   {
   /**
    * if this field is of String type, what is its allowed values?
    **/
+  
   @ApiModelProperty(value = "if this field is of String type, what is its allowed values?")
   @JsonProperty("allowedStringValues")
   public List<String> getAllowedStringValues() {
@@ -157,19 +166,31 @@ public class WsrFieldMeta   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WsrFieldMeta {\n");
     
-    sb.append("    name: ").append(StringUtil.toIndentedString(name)).append("\n");
-    sb.append("    displayName: ").append(StringUtil.toIndentedString(displayName)).append("\n");
-    sb.append("    paramHint: ").append(StringUtil.toIndentedString(paramHint)).append("\n");
-    sb.append("    jsonType: ").append(StringUtil.toIndentedString(jsonType)).append("\n");
-    sb.append("    optionalParam: ").append(StringUtil.toIndentedString(optionalParam)).append("\n");
-    sb.append("    multiMediaType: ").append(StringUtil.toIndentedString(multiMediaType)).append("\n");
-    sb.append("    isDateMillis: ").append(StringUtil.toIndentedString(isDateMillis)).append("\n");
-    sb.append("    allowedStringValues: ").append(StringUtil.toIndentedString(allowedStringValues)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    paramHint: ").append(toIndentedString(paramHint)).append("\n");
+    sb.append("    jsonType: ").append(toIndentedString(jsonType)).append("\n");
+    sb.append("    optionalParam: ").append(toIndentedString(optionalParam)).append("\n");
+    sb.append("    multiMediaType: ").append(toIndentedString(multiMediaType)).append("\n");
+    sb.append("    isDateMillis: ").append(toIndentedString(isDateMillis)).append("\n");
+    sb.append("    allowedStringValues: ").append(toIndentedString(allowedStringValues)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

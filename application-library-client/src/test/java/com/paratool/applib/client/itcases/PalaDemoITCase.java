@@ -60,7 +60,7 @@ public class PalaDemoITCase {
 		Map<String, String> requestHeaders = new HashMap<String, String>();
 		requestHeaders.put(ACCESS_TOKEN_KEY, accessToken);
 		PalaResult<Long> uploadResult = MyHttpClient.postEntity(URL_BASE_PATH
-				+ "/app/upload-client-script", requestHeaders, Long.class,
+				+ "/app/clientscript/upload", requestHeaders, Long.class,
 				uploadEntity);
 
 		// show result

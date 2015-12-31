@@ -12,12 +12,11 @@ import java.util.Objects;
 
 
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
-public class DownloadAppResult   {
+public class RunAppResult   {
   
   private Integer quotaLimit = null;
   private Integer quotaUsed = null;
-  private String fileUrl = null;
-  private String filename = null;
+  private Long taskId = null;
 
   
   /**
@@ -49,30 +48,16 @@ public class DownloadAppResult   {
 
   
   /**
-   * the file's http url. it will expire in 10 minutes
+   * The generated async-running task
    **/
   
-  @ApiModelProperty(required = true, value = "the file's http url. it will expire in 10 minutes")
-  @JsonProperty("fileUrl")
-  public String getFileUrl() {
-    return fileUrl;
+  @ApiModelProperty(required = true, value = "The generated async-running task")
+  @JsonProperty("taskId")
+  public Long getTaskId() {
+    return taskId;
   }
-  public void setFileUrl(String fileUrl) {
-    this.fileUrl = fileUrl;
-  }
-
-  
-  /**
-   * the file's name
-   **/
-  
-  @ApiModelProperty(required = true, value = "the file's name")
-  @JsonProperty("filename")
-  public String getFilename() {
-    return filename;
-  }
-  public void setFilename(String filename) {
-    this.filename = filename;
+  public void setTaskId(Long taskId) {
+    this.taskId = taskId;
   }
 
   
@@ -85,27 +70,25 @@ public class DownloadAppResult   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DownloadAppResult downloadAppResult = (DownloadAppResult) o;
-    return Objects.equals(quotaLimit, downloadAppResult.quotaLimit) &&
-        Objects.equals(quotaUsed, downloadAppResult.quotaUsed) &&
-        Objects.equals(fileUrl, downloadAppResult.fileUrl) &&
-        Objects.equals(filename, downloadAppResult.filename);
+    RunAppResult runAppResult = (RunAppResult) o;
+    return Objects.equals(quotaLimit, runAppResult.quotaLimit) &&
+        Objects.equals(quotaUsed, runAppResult.quotaUsed) &&
+        Objects.equals(taskId, runAppResult.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(quotaLimit, quotaUsed, fileUrl, filename);
+    return Objects.hash(quotaLimit, quotaUsed, taskId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DownloadAppResult {\n");
+    sb.append("class RunAppResult {\n");
     
     sb.append("    quotaLimit: ").append(toIndentedString(quotaLimit)).append("\n");
     sb.append("    quotaUsed: ").append(toIndentedString(quotaUsed)).append("\n");
-    sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
-    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

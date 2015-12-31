@@ -1,16 +1,17 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
-
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class CommonSearchRequest   {
   
   private Integer pageNumber = null;
@@ -23,6 +24,7 @@ public class CommonSearchRequest   {
   /**
    * 1-based page number
    **/
+  
   @ApiModelProperty(required = true, value = "1-based page number")
   @JsonProperty("pageNumber")
   public Integer getPageNumber() {
@@ -36,6 +38,7 @@ public class CommonSearchRequest   {
   /**
    * pgae size
    **/
+  
   @ApiModelProperty(required = true, value = "pgae size")
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -49,6 +52,7 @@ public class CommonSearchRequest   {
   /**
    * the key word
    **/
+  
   @ApiModelProperty(value = "the key word")
   @JsonProperty("keyword")
   public String getKeyword() {
@@ -62,6 +66,7 @@ public class CommonSearchRequest   {
   /**
    * which field to order by?
    **/
+  
   @ApiModelProperty(value = "which field to order by?")
   @JsonProperty("orderBy")
   public String getOrderBy() {
@@ -75,6 +80,7 @@ public class CommonSearchRequest   {
   /**
    * ascending ordering?
    **/
+  
   @ApiModelProperty(value = "ascending ordering?")
   @JsonProperty("orderAsc")
   public Boolean getOrderAsc() {
@@ -108,16 +114,28 @@ public class CommonSearchRequest   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommonSearchRequest {\n");
     
-    sb.append("    pageNumber: ").append(StringUtil.toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(StringUtil.toIndentedString(pageSize)).append("\n");
-    sb.append("    keyword: ").append(StringUtil.toIndentedString(keyword)).append("\n");
-    sb.append("    orderBy: ").append(StringUtil.toIndentedString(orderBy)).append("\n");
-    sb.append("    orderAsc: ").append(StringUtil.toIndentedString(orderAsc)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    keyword: ").append(toIndentedString(keyword)).append("\n");
+    sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
+    sb.append("    orderAsc: ").append(toIndentedString(orderAsc)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

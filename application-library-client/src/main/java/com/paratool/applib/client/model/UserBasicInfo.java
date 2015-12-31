@@ -1,17 +1,18 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
-
-
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class UserBasicInfo   {
   
   private Long id = null;
@@ -25,6 +26,7 @@ public class UserBasicInfo   {
   /**
    * id
    **/
+  
   @ApiModelProperty(value = "id")
   @JsonProperty("id")
   public Long getId() {
@@ -38,6 +40,7 @@ public class UserBasicInfo   {
   /**
    * create time. The system miliseconds since 1970-01-01 GMT
    **/
+  
   @ApiModelProperty(value = "create time. The system miliseconds since 1970-01-01 GMT")
   @JsonProperty("createDateTime")
   public Date getCreateDateTime() {
@@ -51,6 +54,7 @@ public class UserBasicInfo   {
   /**
    * last update time. The system miliseconds since 1970-01-01 GMT
    **/
+  
   @ApiModelProperty(value = "last update time. The system miliseconds since 1970-01-01 GMT")
   @JsonProperty("updateDateTime")
   public Date getUpdateDateTime() {
@@ -64,6 +68,7 @@ public class UserBasicInfo   {
   /**
    * the unique user name
    **/
+  
   @ApiModelProperty(required = true, value = "the unique user name")
   @JsonProperty("userPrincipalName")
   public String getUserPrincipalName() {
@@ -77,6 +82,7 @@ public class UserBasicInfo   {
   /**
    * email
    **/
+  
   @ApiModelProperty(required = true, value = "email")
   @JsonProperty("email")
   public String getEmail() {
@@ -90,6 +96,7 @@ public class UserBasicInfo   {
   /**
    * source. Did he/she register here or coming from facebook/google ?
    **/
+  
   @ApiModelProperty(required = true, value = "source. Did he/she register here or coming from facebook/google ?")
   @JsonProperty("source")
   public String getSource() {
@@ -124,17 +131,29 @@ public class UserBasicInfo   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserBasicInfo {\n");
     
-    sb.append("    id: ").append(StringUtil.toIndentedString(id)).append("\n");
-    sb.append("    createDateTime: ").append(StringUtil.toIndentedString(createDateTime)).append("\n");
-    sb.append("    updateDateTime: ").append(StringUtil.toIndentedString(updateDateTime)).append("\n");
-    sb.append("    userPrincipalName: ").append(StringUtil.toIndentedString(userPrincipalName)).append("\n");
-    sb.append("    email: ").append(StringUtil.toIndentedString(email)).append("\n");
-    sb.append("    source: ").append(StringUtil.toIndentedString(source)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createDateTime: ").append(toIndentedString(createDateTime)).append("\n");
+    sb.append("    updateDateTime: ").append(toIndentedString(updateDateTime)).append("\n");
+    sb.append("    userPrincipalName: ").append(toIndentedString(userPrincipalName)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

@@ -1,16 +1,17 @@
 package com.paratool.applib.client.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.paratool.applib.client.invoker.StringUtil;
-
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-import io.swagger.annotations.*;
-import com.fasterxml.jackson.annotation.*;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-26T20:42:02.626+08:00")
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-12-31T11:51:43.659+08:00")
 public class KeyValue   {
   
   private String key = null;
@@ -20,6 +21,7 @@ public class KeyValue   {
   /**
    * A string typed key
    **/
+  
   @ApiModelProperty(required = true, value = "A string typed key")
   @JsonProperty("key")
   public String getKey() {
@@ -33,6 +35,7 @@ public class KeyValue   {
   /**
    * A value of atomic type such as Number or Boolean, it could be null
    **/
+  
   @ApiModelProperty(value = "A value of atomic type such as Number or Boolean, it could be null")
   @JsonProperty("value")
   public Object getValue() {
@@ -63,13 +66,25 @@ public class KeyValue   {
   }
 
   @Override
-  public String toString()  {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyValue {\n");
     
-    sb.append("    key: ").append(StringUtil.toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(StringUtil.toIndentedString(value)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+
