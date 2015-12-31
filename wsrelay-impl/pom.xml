@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>com.paratool</groupId>
 			<artifactId>pala-wsrelay-interfaces</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0</version>
 		</dependency>
 
 
