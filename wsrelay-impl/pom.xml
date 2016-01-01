@@ -6,7 +6,6 @@
 	<groupId>com.paratool</groupId>
 	<artifactId>pala-wsrelay-impl</artifactId>
 	<packaging>jar</packaging>
-	<version>0.92</version>
 
 
 	<properties>
@@ -168,4 +167,5 @@
 
 
 
+	<version>100-verion-never-changes-SNAPSHOT</version>
 </project>
