@@ -48,7 +48,7 @@ git push -u origin master
 
 #### Know the big picture
 
-![Sequence Diagram](/doc/wsr-seq-diagram.png)
+![Sequence Diagram](doc/wsr-seq-diagram.png)
 
 What you are doing is an adapter library which will be integrated to the backend. You will,
 
