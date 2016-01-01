@@ -17,7 +17,7 @@ import com.paratool.applib.api.core.application.webservicerelay.WsrProxyExceptio
 
 /**
  * 
- * @author shaunyip@outlook.com
+ * @author shaunyip@outlook.com and shaunyippara
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
