@@ -84,7 +84,7 @@ mvn verify
 
 ## Submit for reviewing
 1. Submit the code change via github pull request from your repository to the upstream repository.
-2. Send an email to your manager including: 
+2. Create an issue under [https://github.com/Goparatool/application-library-api-support/issues] which includes: 
  * Console output generated your test cases. Here is a sample: 
 ````
 	//WsrGdEmployerSearchProxyITCase
